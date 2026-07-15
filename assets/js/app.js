@@ -497,94 +497,80 @@ function getFilteredSpirits() {
 
 
 /* ========================================
-   MOSTRAR TARJETAS
+MOSTRAR TARJETAS
 ======================================== */
 
 function render() {
+grid.innerHTML = "";
 
-    grid.innerHTML = "";
+const filteredSpirits = getFilteredSpirits();
+const activeCollection = getActiveCollection();
 
-    const filteredSpirits = getFilteredSpirits();
-        const activeCollection = getActiveCollection();
+filteredSpirits.forEach((spirit) => {
+    const isOwned = activeCollection[spirit.id] === true;
 
-    filteredSpirits.forEach(spirit => {
+    const card = document.createElement("article");
 
-        const isOwned = activeCollection[spirit.id] === true;
+    card.className = `card ${spirit.rarity} ${spirit.variant}`;
 
-        const card = document.createElement("article");
+    card.dataset.id = spirit.id;
 
-        card.className =
-            `card ${spirit.rarity} ${spirit.variant}`;
+    if (isOwned) {
+    card.classList.add("owned");
+    }
 
-        if (isOwned) {
-            card.classList.add("owned");
-        }
+    card.innerHTML = `
 
-        const translatedRarity =
-            getRarityLabel(spirit.rarity);
+    <div class="card-image-wrapper">
 
-        const translatedVariant =
-            getVariantLabel(spirit.variant);
+        <img
+            class="card-image"
+            src="${spirit.image}"
+            alt="${escapeHTML(spirit.name[currentLanguage])}"
+            loading="lazy"
+        >
 
-        card.innerHTML = `
+        <div
+            class="owned-check"
+            aria-hidden="true"
+        >
+            ✓
+        </div>
+
+        <div class="dust-cost">
+
             <img
-                class="card-image"
-                src="${spirit.image}"
-                alt="${escapeHTML(spirit.name[currentLanguage])}"
-                loading="lazy"
+                class="dust-icon"
+                src="assets/icons/dust.webp"
+                alt=""
+                aria-hidden="true"
             >
 
-            <div class="card-content">
+            <span>
+                ${formatNumber(spirit.price)}
+            </span>
 
-                <h3 class="card-title">
-                    ${escapeHTML(spirit.name[currentLanguage])}
-                </h3>
+        </div>
 
-                <div class="card-meta">
+    </div>
 
-                    <span class="badge rarity-badge">
-                        ${translatedRarity}
-                    </span>
+    <div class="card-content">
 
-                    <span class="badge variant-badge">
-                        ${getVariantIcon(spirit.variant)}
-                        ${translatedVariant}
-                    </span>
+        <h3 class="card-title">
+            ${escapeHTML(spirit.name[currentLanguage])}
+        </h3>
 
-                    <span class="badge price-badge">
-                        ${formatNumber(spirit.price)}
-                    </span>
+    </div>
 
-                </div>
+`;
 
-                <label class="card-owned">
+    grid.appendChild(card);
+});
 
-                    <input
-                        type="checkbox"
-                        data-id="${spirit.id}"
-                        ${isOwned ? "checked" : ""}
-                        ${isSharedMode ? "disabled" : ""}
-                    >
+noResults.hidden = filteredSpirits.length !== 0;
 
-                    <span>
-                        ${translations[currentLanguage].owned}
-                    </span>
-
-                </label>
-
-            </div>
-        `;
-
-        grid.appendChild(card);
-
-    });
-
-    noResults.hidden =
-        filteredSpirits.length !== 0;
-
-    updateStatistics();
-    addCheckboxEvents();
-
+updateStatistics();
+addCardEvents();
 }
 
 
@@ -592,18 +578,18 @@ function render() {
     CHECKBOXES
 ======================================== */
 
-function addCheckboxEvents() {
-if (isSharedMode) {
+function addCardEvents() {
+    if (isSharedMode) {
     return;
-}
+    }
 
-const checkboxes = grid.querySelectorAll("input[type='checkbox'][data-id]");
+    const cards = grid.querySelectorAll(".card[data-id]");
 
-checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", (event) => {
-    const id = Number(event.target.dataset.id);
+    cards.forEach((card) => {
+    card.addEventListener("click", () => {
+    const id = Number(card.dataset.id);
 
-    collection[id] = event.target.checked;
+    collection[id] = collection[id] !== true;
 
     saveCollection();
     render();

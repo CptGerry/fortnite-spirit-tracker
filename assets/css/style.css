@@ -544,7 +544,9 @@ h1 {
 
     box-shadow:
         0 0 0 2px
-        rgba(80, 220, 140, 0.6);
+        rgba(34, 197, 94, 0.65),
+        0 12px 30px
+        rgba(0, 0, 0, 0.3);
 
 }
 
@@ -587,6 +589,32 @@ h1 {
 
     .card-content {
         padding: 12px;
+    }
+
+    .dust-cost {
+        top: 8px;
+        right: 8px;
+    
+        gap: 4px;
+    
+        padding: 5px 8px;
+    
+        font-size: 0.75rem;
+    }
+    
+    .dust-icon {
+        width: 17px;
+        height: 17px;
+    }
+    
+    .owned-check {
+        top: 8px;
+        left: 8px;
+    
+        width: 32px;
+        height: 32px;
+    
+        font-size: 1.15rem;
     }
 
 }
@@ -790,4 +818,132 @@ h1 {
     .comparison-results {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================
+   IMAGEN Y MARCA DE COLECCIÓN
+========================= */
+
+.card-image-wrapper {
+    position: relative;
+}
+
+.owned-check {
+
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #16a34a
+        );
+
+    color: #ffffff;
+
+    border:
+        3px solid rgba(255,255,255,0.95);
+
+    border-radius: 50%;
+
+    font-size: 1.4rem;
+    font-weight: 900;
+
+    box-shadow:
+        0 6px 18px
+        rgba(34, 197, 94, 0.45);
+
+    opacity: 0;
+
+    transform:
+        scale(0.6);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+/* Mostrar palomita cuando está marcado */
+
+.card.owned .owned-check {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+}
+
+.card {
+    cursor: pointer;
+}
+
+.shared-mode .card {
+    cursor: default;
+}
+
+/* =========================
+   COSTE DE POLVO
+========================= */
+
+.dust-cost {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 7px 10px;
+
+    background:
+        rgba(10, 12, 20, 0.82);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 999px;
+
+    color: #ffffff;
+
+    font-size: 0.85rem;
+    font-weight: 800;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.3);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+
+.dust-icon {
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
 }
