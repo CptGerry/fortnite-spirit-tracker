@@ -2,58 +2,282 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Fortnite Spirits Checklist</title>
+    <meta
+        name="description"
+        content="Track and share your Fortnite Spirits collection."
+    >
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Spirit Tracker</title>
 
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
 </head>
 
 <body>
 
-<header>
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
 
-    <h1>Fortnite Spirits Checklist</h1>
+    <header class="hero">
 
-    <p>Proyecto en desarrollo 🚀</p>
+        <div class="hero-content">
 
-</header>
+            <div class="top-bar">
 
-<main>
+                <h1>SPIRIT TRACKER</h1>
 
-    <section id="stats">
+                <button
+                    id="language-button"
+                    class="language-button"
+                    type="button"
+                >
+                    ES
+                </button>
 
-        <h2>Colección</h2>
+            </div>
 
-        <p id="counter"></p>
+            <p id="subtitle">
+                Sigue tu colección de Espíritus de Fortnite
+            </p>
 
-        <div class="progress">
 
-            <div id="progress-bar"></div>
+            <!-- ESTADÍSTICAS -->
+
+            <section class="stats">
+
+                <div class="stat">
+
+                    <span
+                        id="percentage"
+                        class="stat-number"
+                    >
+                        0%
+                    </span>
+
+                    <span
+                        id="progress-label"
+                        class="stat-label"
+                    >
+                        Completado
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span
+                        id="counter"
+                        class="stat-number"
+                    >
+                        0 / 0
+                    </span>
+
+                    <span
+                        id="collection-label"
+                        class="stat-label"
+                    >
+                        Colección
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span
+                        id="dust-value"
+                        class="stat-number"
+                    >
+                        0
+                    </span>
+
+                    <span
+                        id="dust-label"
+                        class="stat-label"
+                    >
+                        Polvo invertido
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- BARRA DE PROGRESO -->
+
+            <div class="progress">
+
+                <div id="progress-bar"></div>
+
+            </div>
 
         </div>
 
-        <div class="toolbar">
+    </header>
+
+
+    <!-- =========================
+         CONTENIDO
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- BUSCADOR -->
+
+        <section class="controls">
 
             <input
+                type="search"
                 id="search"
-                type="text"
-                placeholder="🔍 Buscar espíritu...">
+                placeholder="Buscar espíritu..."
+                autocomplete="off"
+            >
 
-        </div>
 
-    </section>
+            <!-- FILTRO DE COLECCIÓN -->
 
-    <section id="grid"></section>
+            <div class="filter-group">
 
-</main>
+                <button
+                    class="filter-button active"
+                    data-collection="all"
+                >
+                    Todos
+                </button>
 
-<script src="assets/js/data.js"></script>
-<script src="assets/js/app.js"></script>
+                <button
+                    class="filter-button"
+                    data-collection="owned"
+                >
+                    Tengo
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-collection="missing"
+                >
+                    Me faltan
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RAREZAS -->
+
+        <section class="filter-section">
+
+            <h2 id="rarity-title">
+                Rareza
+            </h2>
+
+            <div class="filter-group">
+
+                <button class="rarity-button active" data-rarity="all">
+                Todas
+                </button>
+
+                <button class="rarity-button rare" data-rarity="rare">
+                Raro
+                </button>
+
+                <button class="rarity-button epic" data-rarity="epic">
+                Épico
+                </button>
+
+                <button class="rarity-button legendary" data-rarity="legendary">
+                Legendario
+                </button>
+
+                <button class="rarity-button mythic" data-rarity="mythic">
+                Mítico
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- VARIANTES -->
+
+        <section class="filter-section">
+
+            <h2 id="variant-title">
+                Variante
+            </h2>
+
+            <div class="filter-group variant-filters">
+
+                <button class="variant-button active" data-variant="all">
+                Todas
+                </button>
+
+                <button class="variant-button" data-variant="base">
+                Base
+                </button>
+
+                <button class="variant-button gold" data-variant="gold">
+                Oro
+                </button>
+
+                <button class="variant-button gummy" data-variant="gummy">
+                🍉 Gomita
+                </button>
+
+                <button class="variant-button galaxy" data-variant="galaxy">
+                🌌 Galaxia
+                </button>
+
+                <button class="variant-button holofoil" data-variant="holofoil">
+                ✨ Holofoil
+                </button>
+
+                <button class="variant-button gem" data-variant="gem">
+                💎 Gema
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CUADRÍCULA -->
+
+        <section
+            id="grid"
+            class="spirits-grid"
+        ></section>
+
+
+        <!-- MENSAJE SIN RESULTADOS -->
+
+        <p
+            id="no-results"
+            class="no-results"
+            hidden
+        >
+            No se encontraron espíritus.
+        </p>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="assets/js/app.js"></script>
 
 </body>
 
