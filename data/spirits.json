@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Spirit 001",
+        "rarity": "Common",
+        "image": "assets/spirits/spirit001.png"
+    },
+    {
+        "id": 2,
+        "name": "Spirit 002",
+        "rarity": "Rare",
+        "image": "assets/spirits/spirit002.png"
+    },
+    {
+        "id": 3,
+        "name": "Spirit 003",
+        "rarity": "Epic",
+        "image": "assets/spirits/spirit003.png"
+    }
+]
