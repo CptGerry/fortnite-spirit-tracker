@@ -19,6 +19,8 @@ const collectionLabel = document.getElementById("collection-label");
 const dustLabel = document.getElementById("dust-label");
 const rarityTitle = document.getElementById("rarity-title");
 const variantTitle = document.getElementById("variant-title");
+const shareButton = document.getElementById("share-button");
+const shareMessage = document.getElementById("share-message");
 
 
 /* ========================================
@@ -113,8 +115,15 @@ async function loadSpirits() {
 
         spirits = parseCSV(csvText);
 
-        render();
+        /*
+    Si la URL contiene ?c=...
+    cargamos esa colección.
+*/
+
+        loadSharedCollection();
+
         updateLanguage();
+        render();
 
     } catch (error) {
 
@@ -988,6 +997,224 @@ function escapeHTML(text) {
 
 }
 
+/* ========================================
+   COMPARTIR COLECCIÓN
+======================================== */
+
+function encodeCollection() {
+
+    /*
+        Cada espíritu se representa con:
+
+        1 = lo tengo
+        0 = no lo tengo
+
+        Ejemplo:
+        1011001...
+    */
+
+    const bits = spirits
+        .map(spirit =>
+            collection[spirit.id] === true
+                ? "1"
+                : "0"
+        )
+        .join("");
+
+    /*
+        Convertimos grupos de bits
+        en caracteres hexadecimales.
+
+        1111 → f
+        1010 → a
+
+        Esto hace la URL más corta.
+    */
+
+    let encoded = "";
+
+    for (
+        let i = 0;
+        i < bits.length;
+        i += 4
+    ) {
+
+        const group =
+            bits
+                .slice(i, i + 4)
+                .padEnd(4, "0");
+
+        encoded +=
+            parseInt(group, 2)
+                .toString(16);
+
+    }
+
+    return encoded;
+
+}
+
+
+function decodeCollection(encoded) {
+
+    if (!encoded) {
+        return null;
+    }
+
+    /*
+        Comprobamos que el código
+        solamente contenga hexadecimal.
+    */
+
+    if (!/^[0-9a-f]+$/i.test(encoded)) {
+        return null;
+    }
+
+    let bits = "";
+
+    for (const character of encoded) {
+
+        bits +=
+            parseInt(character, 16)
+                .toString(2)
+                .padStart(4, "0");
+
+    }
+
+    const decodedCollection = {};
+
+    spirits.forEach((spirit, index) => {
+
+        decodedCollection[spirit.id] =
+            bits[index] === "1";
+
+    });
+
+    return decodedCollection;
+
+}
+
+
+function createShareURL() {
+
+    const encodedCollection =
+        encodeCollection();
+
+    const url =
+        new URL(window.location.href);
+
+    url.searchParams.set(
+        "c",
+        encodedCollection
+    );
+
+    /*
+        Eliminamos cualquier fragmento
+        que pudiera tener la URL.
+    */
+
+    url.hash = "";
+
+    return url.toString();
+
+}
+
+
+async function copyShareURL() {
+
+    const shareURL =
+        createShareURL();
+
+    try {
+
+        await navigator.clipboard.writeText(
+            shareURL
+        );
+
+        showShareMessage(
+            currentLanguage === "es"
+                ? "✓ Enlace copiado"
+                : "✓ Link copied"
+        );
+
+    } catch (error) {
+
+        console.error(
+            "No se pudo copiar el enlace:",
+            error
+        );
+
+        /*
+            Alternativa para navegadores
+            donde Clipboard API falle.
+        */
+
+        window.prompt(
+            currentLanguage === "es"
+                ? "Copia este enlace:"
+                : "Copy this link:",
+            shareURL
+        );
+
+    }
+
+}
+
+
+function showShareMessage(message) {
+
+    shareMessage.textContent =
+        message;
+
+    clearTimeout(
+        showShareMessage.timeout
+    );
+
+    showShareMessage.timeout =
+        setTimeout(() => {
+
+            shareMessage.textContent = "";
+
+        }, 3000);
+
+}
+
+
+function loadSharedCollection() {
+
+    const url =
+        new URL(window.location.href);
+
+    const encodedCollection =
+        url.searchParams.get("c");
+
+    if (!encodedCollection) {
+        return false;
+    }
+
+    const sharedCollection =
+        decodeCollection(
+            encodedCollection
+        );
+
+    if (!sharedCollection) {
+        return false;
+    }
+
+    collection =
+        sharedCollection;
+
+    saveCollection();
+
+    return true;
+
+}
+
+
+shareButton.addEventListener(
+    "click",
+    copyShareURL
+);
 
 /* ========================================
    INICIAR
