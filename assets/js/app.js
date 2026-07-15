@@ -1,7 +1,7 @@
 "use strict";
 
 /* ========================================
-   ELEMENTOS DE LA PÁGINA
+ELEMENTOS DE LA PÁGINA
 ======================================== */
 
 const grid = document.getElementById("grid");
@@ -12,7 +12,6 @@ const dustValue = document.getElementById("dust-value");
 const searchInput = document.getElementById("search");
 const noResults = document.getElementById("no-results");
 const languageButton = document.getElementById("language-button");
-
 const subtitle = document.getElementById("subtitle");
 const progressLabel = document.getElementById("progress-label");
 const collectionLabel = document.getElementById("collection-label");
@@ -34,6 +33,9 @@ const onlySharedCount = document.getElementById("only-shared-count");
 const bothLabel = document.getElementById("both-label");
 const onlyMineLabel = document.getElementById("only-mine-label");
 const onlySharedLabel = document.getElementById("only-shared-label");
+const collectorNameInput = document.getElementById("collector-name");
+const downloadImageButton = document.getElementById("download-image-button");
+const imageMessage = document.getElementById("image-message");
 
 
 /* ========================================
@@ -1350,6 +1352,847 @@ importButton.addEventListener(
 myCollectionButton.addEventListener(
     "click",
     leaveSharedMode
+);
+
+collectorNameInput.value =
+localStorage.getItem("spiritTrackerCollectorName") || "";
+
+collectorNameInput.addEventListener("input", () => {
+localStorage.setItem(
+    "spiritTrackerCollectorName",
+    collectorNameInput.value.trim(),
+);
+});
+
+/* ========================================
+   GENERAR PNG DE LA COLECCIÓN
+======================================== */
+
+async function generateCollectionImage() {
+
+    if (spirits.length === 0) {
+        return;
+    }
+
+    downloadImageButton.disabled = true;
+
+    imageMessage.textContent =
+        currentLanguage === "es"
+            ? "Generando imagen..."
+            : "Generating image...";
+
+    try {
+
+        const activeCollection =
+            getActiveCollection();
+
+        const ownedCount =
+            spirits.filter(
+                spirit =>
+                    activeCollection[spirit.id] === true
+            ).length;
+
+        const total =
+            spirits.length;
+
+        const percent =
+            total > 0
+                ? Math.round(
+                    (ownedCount / total) * 100
+                )
+                : 0;
+
+        const collectorName =
+            collectorNameInput.value.trim() ||
+            (
+                currentLanguage === "es"
+                    ? "Mi colección"
+                    : "My collection"
+            );
+
+        /*
+            Dimensiones pensadas para compartir
+            en Discord, Facebook y otras redes.
+        */
+
+        const canvasWidth = 1400;
+        const outerPadding = 55;
+
+        const columns = 9;
+        const cardGap = 14;
+
+        const availableWidth =
+            canvasWidth - outerPadding * 2;
+
+        const cardWidth =
+            Math.floor(
+                (
+                    availableWidth -
+                    cardGap * (columns - 1)
+                ) / columns
+            );
+
+        const cardHeight = cardWidth;
+
+        const rows =
+            Math.ceil(spirits.length / columns);
+
+        const headerHeight = 285;
+
+        const gridHeight =
+            rows * cardHeight +
+            (rows - 1) * cardGap;
+
+        const footerHeight = 20;
+
+        const canvasHeight =
+            headerHeight +
+            gridHeight +
+            footerHeight +
+            outerPadding;
+
+        const canvas =
+            document.createElement("canvas");
+
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+
+        const context =
+            canvas.getContext("2d");
+
+        if (!context) {
+            throw new Error(
+                "Canvas no disponible"
+            );
+        }
+
+        /*
+            Fondo
+        */
+
+        const backgroundGradient =
+            context.createLinearGradient(
+                0,
+                0,
+                canvasWidth,
+                canvasHeight
+            );
+
+        backgroundGradient.addColorStop(
+            0,
+            "#172541"
+        );
+
+        backgroundGradient.addColorStop(
+            0.48,
+            "#0d101a"
+        );
+
+        backgroundGradient.addColorStop(
+            1,
+            "#17112a"
+        );
+
+        context.fillStyle =
+            backgroundGradient;
+
+        context.fillRect(
+            0,
+            0,
+            canvasWidth,
+            canvasHeight
+        );
+
+        /*
+            Decoración superior
+        */
+
+        const glow =
+            context.createRadialGradient(
+                canvasWidth * 0.75,
+                40,
+                20,
+                canvasWidth * 0.75,
+                40,
+                500
+            );
+
+        glow.addColorStop(
+            0,
+            "rgba(100, 100, 255, 0.28)"
+        );
+
+        glow.addColorStop(
+            1,
+            "rgba(100, 100, 255, 0)"
+        );
+
+        context.fillStyle = glow;
+
+        context.fillRect(
+            0,
+            0,
+            canvasWidth,
+            600
+        );
+
+        /*
+            Título
+        */
+
+        context.fillStyle = "#ffffff";
+        context.textAlign = "left";
+        context.textBaseline = "top";
+
+        context.font =
+            "900 64px Arial, sans-serif";
+
+        context.fillText(
+            "SPIRIT TRACKER",
+            outerPadding,
+            48
+        );
+
+        context.fillStyle = "#aeb4c8";
+
+        context.font =
+            "700 28px Arial, sans-serif";
+
+        context.fillText(
+            collectorName,
+            outerPadding,
+            125
+        );
+
+        /*
+            Progreso
+        */
+
+        context.fillStyle = "#ffffff";
+
+        context.font =
+            "900 45px Arial, sans-serif";
+
+        context.fillText(
+            `${ownedCount} / ${total}`,
+            outerPadding,
+            171
+        );
+
+        context.textAlign = "right";
+
+        context.fillText(
+            `${percent}%`,
+            canvasWidth - outerPadding,
+            171
+        );
+
+        /*
+            Barra de progreso
+        */
+
+        const progressX =
+            outerPadding;
+
+        const progressY = 232;
+
+        const progressWidth =
+            canvasWidth - outerPadding * 2;
+
+        const progressHeight = 18;
+
+        drawRoundedRectangle(
+            context,
+            progressX,
+            progressY,
+            progressWidth,
+            progressHeight,
+            9,
+            "#292e40"
+        );
+
+        const filledWidth =
+            progressWidth *
+            (percent / 100);
+
+        if (filledWidth > 0) {
+
+            const progressGradient =
+                context.createLinearGradient(
+                    progressX,
+                    progressY,
+                    progressX + progressWidth,
+                    progressY
+                );
+
+            progressGradient.addColorStop(
+                0,
+                "#42a5ff"
+            );
+
+            progressGradient.addColorStop(
+                1,
+                "#8b5cf6"
+            );
+
+            drawRoundedRectangle(
+                context,
+                progressX,
+                progressY,
+                filledWidth,
+                progressHeight,
+                9,
+                progressGradient
+            );
+
+        }
+
+        /*
+            Cargar todas las imágenes
+        */
+
+        const loadedImages =
+            await Promise.all(
+                spirits.map(
+                    spirit =>
+                        loadCanvasImage(
+                            spirit.image
+                        )
+                )
+            );
+
+        /*
+            Dibujar miniaturas
+        */
+
+        spirits.forEach(
+            (spirit, index) => {
+
+                const column =
+                    index % columns;
+
+                const row =
+                    Math.floor(
+                        index / columns
+                    );
+
+                const x =
+                    outerPadding +
+                    column *
+                    (cardWidth + cardGap);
+
+                const y =
+                    headerHeight +
+                    row *
+                    (cardHeight + cardGap);
+
+                const isOwned =
+                    activeCollection[
+                        spirit.id
+                    ] === true;
+
+                drawSpiritThumbnail(
+                    context,
+                    loadedImages[index],
+                    x,
+                    y,
+                    cardWidth,
+                    cardHeight,
+                    isOwned,
+                    spirit.rarity
+                );
+
+            }
+        );
+
+        /*
+            Descargar
+        */
+
+        const blob =
+            await canvasToBlob(canvas);
+
+        const fileName =
+            createImageFileName(
+                collectorName
+            );
+
+        downloadBlob(blob, fileName);
+
+        imageMessage.textContent =
+            currentLanguage === "es"
+                ? "✓ Imagen descargada"
+                : "✓ Image downloaded";
+
+    } catch (error) {
+
+        console.error(
+            "No se pudo generar la imagen:",
+            error
+        );
+
+        imageMessage.textContent =
+            currentLanguage === "es"
+                ? "No se pudo generar la imagen"
+                : "Image could not be generated";
+
+    } finally {
+
+        downloadImageButton.disabled =
+            false;
+
+        setTimeout(() => {
+
+            imageMessage.textContent = "";
+
+        }, 3500);
+
+    }
+
+}
+
+
+/* ========================================
+   DIBUJAR MINIATURA
+======================================== */
+
+function drawSpiritThumbnail(
+    context,
+    image,
+    x,
+    y,
+    width,
+    height,
+    isOwned,
+    rarity
+) {
+
+    const radius = 16;
+
+    /*
+        Color del borde según rareza
+    */
+
+    const rarityColors = {
+        rare: "#2196f3",
+        epic: "#a855f7",
+        legendary: "#f59e0b",
+        mythic: "#ffd700"
+    };
+
+    const borderColor =
+        rarityColors[rarity] ||
+        "#ffffff";
+
+    context.save();
+
+    /*
+        Sombra de la tarjeta
+    */
+
+    context.shadowColor =
+        "rgba(0, 0, 0, 0.35)";
+
+    context.shadowBlur = 14;
+    context.shadowOffsetY = 6;
+
+    drawRoundedRectangle(
+        context,
+        x,
+        y,
+        width,
+        height,
+        radius,
+        "#171a27"
+    );
+
+    context.shadowColor =
+        "transparent";
+
+    /*
+        Recorte de imagen
+    */
+
+    roundedRectanglePath(
+        context,
+        x,
+        y,
+        width,
+        height,
+        radius
+    );
+
+    context.clip();
+
+    drawContainedImage(
+        context,
+        image,
+        x,
+        y,
+        width,
+        height
+    );
+
+    context.restore();
+
+    /*
+        Borde
+    */
+
+    context.save();
+
+    roundedRectanglePath(
+        context,
+        x + 1.5,
+        y + 1.5,
+        width - 3,
+        height - 3,
+        radius
+    );
+
+    context.lineWidth = isOwned ? 5 : 3;
+
+    context.strokeStyle =
+        isOwned
+            ? "#22c55e"
+            : borderColor;
+
+    context.stroke();
+
+    context.restore();
+
+    /*
+        Palomita
+    */
+
+    if (isOwned) {
+
+        const checkX = x + 24;
+        const checkY = y + 24;
+        const checkRadius = 18;
+
+        context.save();
+
+        context.beginPath();
+
+        context.arc(
+            checkX,
+            checkY,
+            checkRadius,
+            0,
+            Math.PI * 2
+        );
+
+        context.fillStyle =
+            "#22c55e";
+
+        context.fill();
+
+        context.lineWidth = 3;
+
+        context.strokeStyle =
+            "#ffffff";
+
+        context.stroke();
+
+        context.fillStyle =
+            "#ffffff";
+
+        context.textAlign =
+            "center";
+
+        context.textBaseline =
+            "middle";
+
+        context.font =
+            "900 24px Arial, sans-serif";
+
+        context.fillText(
+            "✓",
+            checkX,
+            checkY + 1
+        );
+
+        context.restore();
+
+    }
+
+}
+
+
+/* ========================================
+   CARGAR IMAGEN PARA CANVAS
+======================================== */
+
+function loadCanvasImage(source) {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            const image =
+                new Image();
+
+            image.onload =
+                () => resolve(image);
+
+            image.onerror =
+                () => reject(
+                    new Error(
+                        `No se pudo cargar ${source}`
+                    )
+                );
+
+            image.src = source;
+
+        }
+    );
+
+}
+
+
+/* ========================================
+   DIBUJAR IMAGEN CONTENIDA
+======================================== */
+
+function drawContainedImage(
+    context,
+    image,
+    x,
+    y,
+    width,
+    height
+) {
+
+    const imageRatio =
+        image.width / image.height;
+
+    const boxRatio =
+        width / height;
+
+    let drawWidth;
+    let drawHeight;
+    let drawX;
+    let drawY;
+
+    if (imageRatio > boxRatio) {
+
+        drawWidth = width;
+        drawHeight =
+            width / imageRatio;
+
+        drawX = x;
+        drawY =
+            y +
+            (height - drawHeight) / 2;
+
+    } else {
+
+        drawHeight = height;
+        drawWidth =
+            height * imageRatio;
+
+        drawX =
+            x +
+            (width - drawWidth) / 2;
+
+        drawY = y;
+
+    }
+
+    context.drawImage(
+        image,
+        drawX,
+        drawY,
+        drawWidth,
+        drawHeight
+    );
+
+}
+
+
+/* ========================================
+   RECTÁNGULOS REDONDEADOS
+======================================== */
+
+function roundedRectanglePath(
+    context,
+    x,
+    y,
+    width,
+    height,
+    radius
+) {
+
+    const safeRadius =
+        Math.min(
+            radius,
+            width / 2,
+            height / 2
+        );
+
+    context.beginPath();
+
+    context.moveTo(
+        x + safeRadius,
+        y
+    );
+
+    context.lineTo(
+        x + width - safeRadius,
+        y
+    );
+
+    context.quadraticCurveTo(
+        x + width,
+        y,
+        x + width,
+        y + safeRadius
+    );
+
+    context.lineTo(
+        x + width,
+        y + height - safeRadius
+    );
+
+    context.quadraticCurveTo(
+        x + width,
+        y + height,
+        x + width - safeRadius,
+        y + height
+    );
+
+    context.lineTo(
+        x + safeRadius,
+        y + height
+    );
+
+    context.quadraticCurveTo(
+        x,
+        y + height,
+        x,
+        y + height - safeRadius
+    );
+
+    context.lineTo(
+        x,
+        y + safeRadius
+    );
+
+    context.quadraticCurveTo(
+        x,
+        y,
+        x + safeRadius,
+        y
+    );
+
+    context.closePath();
+
+}
+
+
+function drawRoundedRectangle(
+    context,
+    x,
+    y,
+    width,
+    height,
+    radius,
+    fillStyle
+) {
+
+    context.save();
+
+    roundedRectanglePath(
+        context,
+        x,
+        y,
+        width,
+        height,
+        radius
+    );
+
+    context.fillStyle =
+        fillStyle;
+
+    context.fill();
+
+    context.restore();
+
+}
+
+
+/* ========================================
+   DESCARGAR ARCHIVO
+======================================== */
+
+function canvasToBlob(canvas) {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            canvas.toBlob(
+                blob => {
+
+                    if (blob) {
+                        resolve(blob);
+                    } else {
+                        reject(
+                            new Error(
+                                "No se pudo crear el PNG"
+                            )
+                        );
+                    }
+
+                },
+                "image/png",
+                1
+            );
+
+        }
+    );
+
+}
+
+
+function downloadBlob(blob, fileName) {
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const link =
+        document.createElement("a");
+
+    link.href = url;
+    link.download = fileName;
+
+    document.body.appendChild(link);
+
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+function createImageFileName(name) {
+
+    const normalizedName =
+        normalizeText(name)
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "");
+
+    return `${
+        normalizedName ||
+        "spirit-tracker"
+    }-coleccion.png`;
+
+}
+
+
+downloadImageButton.addEventListener(
+    "click",
+    generateCollectionImage
 );
 /* ========================================
 INICIAR
