@@ -21,16 +21,29 @@ const rarityTitle = document.getElementById("rarity-title");
 const variantTitle = document.getElementById("variant-title");
 const shareButton = document.getElementById("share-button");
 const shareMessage = document.getElementById("share-message");
+const sharedPanel = document.getElementById("shared-panel");
+const sharedTitle = document.getElementById("shared-title");
+const sharedDescription = document.getElementById("shared-description");
+const compareButton = document.getElementById("compare-button");
+const importButton = document.getElementById("import-button");
+const myCollectionButton = document.getElementById("my-collection-button");
+const comparisonResults = document.getElementById("comparison-results");
+const bothCount = document.getElementById("both-count");
+const onlyMineCount = document.getElementById("only-mine-count");
+const onlySharedCount = document.getElementById("only-shared-count");
+const bothLabel = document.getElementById("both-label");
+const onlyMineLabel = document.getElementById("only-mine-label");
+const onlySharedLabel = document.getElementById("only-shared-label");
 
 
 /* ========================================
-   ESTADO DE LA APLICACIÓN
+ESTADO DE LA APLICACIÓN
 ======================================== */
 
 let spirits = [];
 
 let currentLanguage =
-    localStorage.getItem("spiritTrackerLanguage") || "es";
+localStorage.getItem("spiritTrackerLanguage") || "es";
 
 let currentCollectionFilter = "all";
 let currentRarityFilter = "all";
@@ -39,9 +52,16 @@ let currentSearch = "";
 
 let collection = loadCollection();
 
+let sharedCollection = null;
+let isSharedMode = false;
+
+function getActiveCollection() {
+return isSharedMode ? sharedCollection : collection;
+}
+
 
 /* ========================================
-   TRADUCCIONES
+TRADUCCIONES
 ======================================== */
 
 const translations = {
@@ -93,9 +113,9 @@ const translations = {
 };
 
 
-/* ========================================
-   CARGAR CSV
-======================================== */
+    /* ========================================
+    CARGAR CSV
+    ======================================== */
 
 async function loadSpirits() {
 
@@ -142,7 +162,7 @@ async function loadSpirits() {
 
 
 /* ========================================
-   CONVERTIR CSV
+    CONVERTIR CSV
 ======================================== */
 
 function parseCSV(csvText) {
@@ -191,10 +211,10 @@ function parseCSV(csvText) {
 
 
 /*
-   Esta función admite:
-   - comas dentro de comillas
-   - campos entre comillas
-   - saltos de línea normales
+    Esta función admite:
+    - comas dentro de comillas
+    - campos entre comillas
+    - saltos de línea normales
 */
 
 function parseCSVRows(csvText) {
@@ -431,13 +451,13 @@ function saveCollection() {
 
 function getFilteredSpirits() {
 
+    const activeCollection = getActiveCollection();
     const normalizedSearch =
         normalizeText(currentSearch);
 
     return spirits.filter(spirit => {
 
-        const isOwned =
-            collection[spirit.id] === true;
+        const isOwned = activeCollection[spirit.id] === true;
 
         const nameMatches =
             normalizeText(spirit.name.es)
@@ -484,16 +504,14 @@ function render() {
 
     grid.innerHTML = "";
 
-    const filteredSpirits =
-        getFilteredSpirits();
+    const filteredSpirits = getFilteredSpirits();
+        const activeCollection = getActiveCollection();
 
     filteredSpirits.forEach(spirit => {
 
-        const isOwned =
-            collection[spirit.id] === true;
+        const isOwned = activeCollection[spirit.id] === true;
 
-        const card =
-            document.createElement("article");
+        const card = document.createElement("article");
 
         card.className =
             `card ${spirit.rarity} ${spirit.variant}`;
@@ -512,18 +530,14 @@ function render() {
             <img
                 class="card-image"
                 src="${spirit.image}"
-                alt="${escapeHTML(
-                    spirit.name[currentLanguage]
-                )}"
+                alt="${escapeHTML(spirit.name[currentLanguage])}"
                 loading="lazy"
             >
 
             <div class="card-content">
 
                 <h3 class="card-title">
-                    ${escapeHTML(
-                        spirit.name[currentLanguage]
-                    )}
+                    ${escapeHTML(spirit.name[currentLanguage])}
                 </h3>
 
                 <div class="card-meta">
@@ -549,13 +563,11 @@ function render() {
                         type="checkbox"
                         data-id="${spirit.id}"
                         ${isOwned ? "checked" : ""}
+                        ${isSharedMode ? "disabled" : ""}
                     >
 
                     <span>
-                        ${
-                            translations[currentLanguage]
-                                .owned
-                        }
+                        ${translations[currentLanguage].owned}
                     </span>
 
                 </label>
@@ -577,50 +589,40 @@ function render() {
 
 
 /* ========================================
-   CHECKBOXES
+    CHECKBOXES
 ======================================== */
 
 function addCheckboxEvents() {
+if (isSharedMode) {
+    return;
+}
 
-    const checkboxes =
-        grid.querySelectorAll(
-            "input[type='checkbox'][data-id]"
-        );
+const checkboxes = grid.querySelectorAll("input[type='checkbox'][data-id]");
 
-    checkboxes.forEach(checkbox => {
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", (event) => {
+    const id = Number(event.target.dataset.id);
 
-        checkbox.addEventListener(
-            "change",
-            event => {
+    collection[id] = event.target.checked;
 
-                const id =
-                    Number(event.target.dataset.id);
-
-                collection[id] =
-                    event.target.checked;
-
-                saveCollection();
-                render();
-
-            }
-        );
-
+    saveCollection();
+    render();
     });
-
+});
 }
 
 
 /* ========================================
-   ESTADÍSTICAS
+ESTADÍSTICAS
 ======================================== */
 
 function updateStatistics() {
 
-    const ownedSpirits =
-        spirits.filter(
-            spirit =>
-                collection[spirit.id] === true
-        );
+    const activeCollection = getActiveCollection();
+
+    const ownedSpirits = spirits.filter(
+    (spirit) => activeCollection[spirit.id] === true,
+    );
 
     const ownedCount =
         ownedSpirits.length;
@@ -829,6 +831,41 @@ function updateLanguage() {
         text.noResults;
 
     updateFilterTexts();
+
+    if (currentLanguage === "es") {
+    sharedTitle.textContent = "Estás viendo la colección de otra persona";
+
+    sharedDescription.textContent =
+        "Tu colección personal permanece guardada.";
+
+    compareButton.textContent = "Comparar";
+
+    importButton.textContent = "Importar colección";
+
+    myCollectionButton.textContent = "Volver a mi colección";
+
+    bothLabel.textContent = "Ambos tienen";
+
+    onlyMineLabel.textContent = "Solo tú tienes";
+
+    onlySharedLabel.textContent = "Solo la otra colección tiene";
+    } else {
+    sharedTitle.textContent = "You are viewing another person's collection";
+
+    sharedDescription.textContent = "Your personal collection remains saved.";
+
+    compareButton.textContent = "Compare";
+
+    importButton.textContent = "Import collection";
+
+    myCollectionButton.textContent = "Return to my collection";
+
+    bothLabel.textContent = "Both own";
+
+    onlyMineLabel.textContent = "Only you own";
+
+    onlySharedLabel.textContent = "Only the shared collection owns";
+    }
 
 }
 
@@ -1181,33 +1218,28 @@ function showShareMessage(message) {
 
 
 function loadSharedCollection() {
+const url = new URL(window.location.href);
 
-    const url =
-        new URL(window.location.href);
+const encodedCollection = url.searchParams.get("c");
 
-    const encodedCollection =
-        url.searchParams.get("c");
+if (!encodedCollection) {
+    return false;
+}
 
-    if (!encodedCollection) {
-        return false;
-    }
+const decoded = decodeCollection(encodedCollection);
 
-    const sharedCollection =
-        decodeCollection(
-            encodedCollection
-        );
+if (!decoded) {
+    return false;
+}
 
-    if (!sharedCollection) {
-        return false;
-    }
+sharedCollection = decoded;
+isSharedMode = true;
 
-    collection =
-        sharedCollection;
+document.body.classList.add("shared-mode");
 
-    saveCollection();
+sharedPanel.hidden = false;
 
-    return true;
-
+return true;
 }
 
 
@@ -1217,7 +1249,124 @@ shareButton.addEventListener(
 );
 
 /* ========================================
-   INICIAR
+   MODO COMPARTIDO
+======================================== */
+
+function compareCollections() {
+
+    if (!sharedCollection) {
+        return;
+    }
+
+    let both = 0;
+    let onlyMine = 0;
+    let onlyShared = 0;
+
+    spirits.forEach(spirit => {
+
+        const mine =
+            collection[spirit.id] === true;
+
+        const shared =
+            sharedCollection[spirit.id] === true;
+
+        if (mine && shared) {
+            both++;
+        } else if (mine) {
+            onlyMine++;
+        } else if (shared) {
+            onlyShared++;
+        }
+
+    });
+
+    bothCount.textContent = both;
+    onlyMineCount.textContent = onlyMine;
+    onlySharedCount.textContent = onlyShared;
+
+    comparisonResults.hidden = false;
+
+}
+
+
+function importSharedCollection() {
+
+    if (!sharedCollection) {
+        return;
+    }
+
+    const message =
+        currentLanguage === "es"
+            ? "Esto reemplazará tu colección personal. ¿Continuar?"
+            : "This will replace your personal collection. Continue?";
+
+    const confirmed =
+        window.confirm(message);
+
+    if (!confirmed) {
+        return;
+    }
+
+    collection = {
+        ...sharedCollection
+    };
+
+    saveCollection();
+    leaveSharedMode();
+
+    showShareMessage(
+        currentLanguage === "es"
+            ? "✓ Colección importada"
+            : "✓ Collection imported"
+    );
+
+}
+
+
+function leaveSharedMode() {
+
+    isSharedMode = false;
+    sharedCollection = null;
+
+    document.body.classList.remove(
+        "shared-mode"
+    );
+
+    sharedPanel.hidden = true;
+    comparisonResults.hidden = true;
+
+    const url =
+        new URL(window.location.href);
+
+    url.searchParams.delete("c");
+
+    window.history.replaceState(
+        {},
+        "",
+        url
+    );
+
+    render();
+
+}
+
+
+compareButton.addEventListener(
+    "click",
+    compareCollections
+);
+
+importButton.addEventListener(
+    "click",
+    importSharedCollection
+);
+
+myCollectionButton.addEventListener(
+    "click",
+    leaveSharedMode
+);
+/* ========================================
+INICIAR
 ======================================== */
 
 loadSpirits();

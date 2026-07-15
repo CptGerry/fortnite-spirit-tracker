@@ -25,7 +25,7 @@
 <body>
 
     <!-- =========================
-         ENCABEZADO
+        ENCABEZADO
     ========================== -->
 
     <header class="hero">
@@ -146,11 +146,77 @@
 
 
     <!-- =========================
-         CONTENIDO
+     CONTENIDO
     ========================== -->
 
     <main class="container">
 
+        <section
+    id="shared-panel"
+    class="shared-panel"
+    hidden
+>
+    <div>
+        <span class="shared-label">
+            🔗 Colección compartida
+        </span>
+
+        <h2 id="shared-title">
+            Estás viendo la colección de otra persona
+        </h2>
+
+        <p id="shared-description">
+            Tu colección personal permanece guardada.
+        </p>
+    </div>
+
+    <div class="shared-actions">
+        <button
+            id="compare-button"
+            class="shared-button compare-button"
+            type="button"
+        >
+            Comparar
+        </button>
+
+        <button
+            id="import-button"
+            class="shared-button import-button"
+            type="button"
+        >
+            Importar colección
+        </button>
+
+        <button
+            id="my-collection-button"
+            class="shared-button secondary-button"
+            type="button"
+        >
+            Volver a mi colección
+        </button>
+    </div>
+
+    <div
+        id="comparison-results"
+        class="comparison-results"
+        hidden
+    >
+        <article>
+            <strong id="both-count">0</strong>
+            <span id="both-label">Ambos tienen</span>
+        </article>
+
+        <article>
+            <strong id="only-mine-count">0</strong>
+            <span id="only-mine-label">Solo tú tienes</span>
+        </article>
+
+        <article>
+            <strong id="only-shared-count">0</strong>
+            <span id="only-shared-label">Solo la otra colección tiene</span>
+        </article>
+    </div>
+</section>
 
         <!-- BUSCADOR -->
 
