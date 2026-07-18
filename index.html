@@ -3,24 +3,26 @@
 
 <head>
 
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0"
+	>
 
-    <meta
-        name="description"
-        content="Track and share your Fortnite Spirits collection."
-    >
+	<meta
+		name="description"
+		content="Track and share your Fortnite Spirits collection."
+	>
 
-    <title>Spirit Tracker</title>
+	<title>Spirit Tracker</title>
 
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css"
-    >
+	<link rel="icon" href="data:,">
+
+	<link
+		rel="stylesheet"
+		href="assets/css/style.css"
+	>
 
 </head>
 
@@ -28,572 +30,572 @@
 <body>
 
 
-    <!-- ========================================
-         ENCABEZADO
-    ========================================= -->
+	<!-- ========================================
+		ENCABEZADO
+	========================================= -->
 
-    <header class="hero">
+	<header class="hero">
 
-        <div class="hero-content">
+		<div class="hero-content">
 
 
-            <!-- TÍTULO E IDIOMA -->
+			<!-- TÍTULO E IDIOMA -->
 
-            <div class="top-bar">
+			<div class="top-bar">
 
-                <h1>
-                    SPIRIT TRACKER
-                </h1>
+				<h1>
+					SPIRIT TRACKER
+				</h1>
 
-                <button
-                    id="language-button"
-                    class="language-button"
-                    type="button"
-                >
-                    ES
-                </button>
+				<button
+					id="language-button"
+					class="language-button"
+					type="button"
+				>
+					ES
+				</button>
 
-            </div>
+			</div>
 
 
-            <p id="subtitle">
-                Sigue tu colección de Espíritus de Fortnite
-            </p>
+			<p id="subtitle">
+				Sigue tu colección de Espíritus de Fortnite
+			</p>
 
 
 
-            <!-- ========================================
-                 ESTADÍSTICAS
-            ========================================= -->
+			<!-- ========================================
+				 ESTADÍSTICAS
+			========================================= -->
 
-            <section class="stats">
+			<section class="stats">
 
 
-                <!-- PORCENTAJE -->
+				<!-- PORCENTAJE -->
 
-                <div class="stat">
+				<div class="stat">
 
-                    <span
-                        id="percentage"
-                        class="stat-number"
-                    >
-                        0%
-                    </span>
+					<span
+						id="percentage"
+						class="stat-number"
+					>
+						0%
+					</span>
 
-                    <span
-                        id="progress-label"
-                        class="stat-label"
-                    >
-                        Completado
-                    </span>
+					<span
+						id="progress-label"
+						class="stat-label"
+					>
+						Completado
+					</span>
 
-                </div>
+				</div>
 
 
-                <!-- COLECCIÓN -->
+				<!-- COLECCIÓN -->
 
-                <div class="stat">
+				<div class="stat">
 
-                    <span
-                        id="counter"
-                        class="stat-number"
-                    >
-                        0 / 0
-                    </span>
+					<span
+						id="counter"
+						class="stat-number"
+					>
+						0 / 0
+					</span>
 
-                    <span
-                        id="collection-label"
-                        class="stat-label"
-                    >
-                        Colección
-                    </span>
+					<span
+						id="collection-label"
+						class="stat-label"
+					>
+						Colección
+					</span>
 
-                </div>
+				</div>
 
 
-                <!-- POLVO -->
+				<!-- POLVO -->
 
-                <div class="stat">
+				<div class="stat">
 
-                    <span
-                        id="dust-value"
-                        class="stat-number"
-                    >
-                        0
-                    </span>
+					<span
+						id="dust-value"
+						class="stat-number"
+					>
+						0
+					</span>
 
-                    <span
-                        id="dust-label"
-                        class="stat-label"
-                    >
-                        Polvo invertido
-                    </span>
+					<span
+						id="dust-label"
+						class="stat-label"
+					>
+						Polvo invertido
+					</span>
 
-                </div>
+				</div>
 
 
-            </section>
+			</section>
 
 
 
-            <!-- ========================================
-                 BARRA DE PROGRESO
-            ========================================= -->
+			<!-- ========================================
+				 BARRA DE PROGRESO
+			========================================= -->
 
-            <div class="progress">
+			<div class="progress">
 
-                <div id="progress-bar"></div>
+				<div id="progress-bar"></div>
 
-            </div>
+			</div>
 
 
 
-            <!-- ========================================
-                 COMPARTIR Y GENERAR PNG
-            ========================================= -->
+			<!-- ========================================
+				 COMPARTIR Y GENERAR PNG
+			========================================= -->
 
-            <div class="share-actions">
+			<div class="share-actions">
 
 
-                <!-- COMPARTIR ENLACE -->
+				<!-- COMPARTIR ENLACE -->
 
-                <button
-                    id="share-button"
-                    class="action-button primary-action"
-                    type="button"
-                >
-                    🔗 Compartir colección
-                </button>
+				<button
+					id="share-button"
+					class="action-button primary-action"
+					type="button"
+				>
+					🔗 Compartir colección
+				</button>
 
 
-                <!-- NOMBRE DEL COLECCIONISTA -->
+				<!-- NOMBRE DEL COLECCIONISTA -->
 
-                <input
-                    id="collector-name"
-                    class="collector-name"
-                    type="text"
-                    maxlength="30"
-                    placeholder="Tu nombre"
-                    autocomplete="off"
-                >
+				<input
+					id="collector-name"
+					class="collector-name"
+					type="text"
+					maxlength="30"
+					placeholder="Tu nombre"
+					autocomplete="off"
+				>
 
 
-                <!-- GENERAR PNG -->
+				<!-- GENERAR PNG -->
 
-                <button
-                    id="download-image-button"
-                    class="action-button image-action"
-                    type="button"
-                >
-                    🖼️ Descargar PNG
-                </button>
+				<button
+					id="download-image-button"
+					class="action-button image-action"
+					type="button"
+				>
+					🖼️ Descargar PNG
+				</button>
 
 
-                <!-- MENSAJE DE COMPARTIR -->
+				<!-- MENSAJE DE COMPARTIR -->
 
-                <span
-                    id="share-message"
-                    class="share-message"
-                    aria-live="polite"
-                ></span>
+				<span
+					id="share-message"
+					class="share-message"
+					aria-live="polite"
+				></span>
 
 
-                <!-- MENSAJE DEL GENERADOR -->
+				<!-- MENSAJE DEL GENERADOR -->
 
-                <span
-                    id="image-message"
-                    class="share-message"
-                    aria-live="polite"
-                ></span>
+				<span
+					id="image-message"
+					class="share-message"
+					aria-live="polite"
+				></span>
 
 
-            </div>
+			</div>
 
 
-        </div>
+		</div>
 
-    </header>
+	</header>
 
 
 
-    <!-- ========================================
-         CONTENIDO PRINCIPAL
-    ========================================= -->
+	<!-- ========================================
+		 CONTENIDO PRINCIPAL
+	========================================= -->
 
-    <main class="container">
+	<main class="container">
 
 
 
-        <!-- ========================================
-             COLECCIÓN COMPARTIDA
-        ========================================= -->
+		<!-- ========================================
+			 COLECCIÓN COMPARTIDA
+		========================================= -->
 
-        <section
-            id="shared-panel"
-            class="shared-panel"
-            hidden
-        >
+		<section
+			id="shared-panel"
+			class="shared-panel"
+			hidden
+		>
 
 
-            <!-- INFORMACIÓN -->
+			<!-- INFORMACIÓN -->
 
-            <div>
+			<div>
 
-                <span class="shared-label">
-                    🔗 Colección compartida
-                </span>
+				<span class="shared-label">
+					🔗 Colección compartida
+				</span>
 
-                <h2 id="shared-title">
-                    Estás viendo la colección de otra persona
-                </h2>
+				<h2 id="shared-title">
+					Estás viendo la colección de otra persona
+				</h2>
 
-                <p id="shared-description">
-                    Tu colección personal permanece guardada.
-                </p>
+				<p id="shared-description">
+					Tu colección personal permanece guardada.
+				</p>
 
-            </div>
+			</div>
 
 
 
-            <!-- ACCIONES -->
+			<!-- ACCIONES -->
 
-            <div class="shared-actions">
+			<div class="shared-actions">
 
 
-                <button
-                    id="compare-button"
-                    class="shared-button compare-button"
-                    type="button"
-                >
-                    Comparar
-                </button>
+				<button
+					id="compare-button"
+					class="shared-button compare-button"
+					type="button"
+				>
+					Comparar
+				</button>
 
 
-                <button
-                    id="import-button"
-                    class="shared-button import-button"
-                    type="button"
-                >
-                    Importar colección
-                </button>
+				<button
+					id="import-button"
+					class="shared-button import-button"
+					type="button"
+				>
+					Importar colección
+				</button>
 
 
-                <button
-                    id="my-collection-button"
-                    class="shared-button secondary-button"
-                    type="button"
-                >
-                    Volver a mi colección
-                </button>
+				<button
+					id="my-collection-button"
+					class="shared-button secondary-button"
+					type="button"
+				>
+					Volver a mi colección
+				</button>
 
 
-            </div>
+			</div>
 
 
 
-            <!-- RESULTADOS DE COMPARACIÓN -->
+			<!-- RESULTADOS DE COMPARACIÓN -->
 
-            <div
-                id="comparison-results"
-                class="comparison-results"
-                hidden
-            >
+			<div
+				id="comparison-results"
+				class="comparison-results"
+				hidden
+			>
 
 
-                <!-- AMBOS -->
+				<!-- AMBOS -->
 
-                <article>
+				<article>
 
-                    <strong id="both-count">
-                        0
-                    </strong>
+					<strong id="both-count">
+						0
+					</strong>
 
-                    <span id="both-label">
-                        Ambos tienen
-                    </span>
+					<span id="both-label">
+						Ambos tienen
+					</span>
 
-                </article>
+				</article>
 
 
-                <!-- SOLO YO -->
+				<!-- SOLO YO -->
 
-                <article>
+				<article>
 
-                    <strong id="only-mine-count">
-                        0
-                    </strong>
+					<strong id="only-mine-count">
+						0
+					</strong>
 
-                    <span id="only-mine-label">
-                        Solo tú tienes
-                    </span>
+					<span id="only-mine-label">
+						Solo tú tienes
+					</span>
 
-                </article>
+				</article>
 
 
-                <!-- SOLO COLECCIÓN COMPARTIDA -->
+				<!-- SOLO COLECCIÓN COMPARTIDA -->
 
-                <article>
+				<article>
 
-                    <strong id="only-shared-count">
-                        0
-                    </strong>
+					<strong id="only-shared-count">
+						0
+					</strong>
 
-                    <span id="only-shared-label">
-                        Solo la otra colección tiene
-                    </span>
+					<span id="only-shared-label">
+						Solo la otra colección tiene
+					</span>
 
-                </article>
+				</article>
 
 
-            </div>
+			</div>
 
 
-        </section>
+		</section>
 
 
 
-        <!-- ========================================
-             BUSCADOR Y FILTRO DE COLECCIÓN
-        ========================================= -->
+		<!-- ========================================
+			 BUSCADOR Y FILTRO DE COLECCIÓN
+		========================================= -->
 
-        <section class="controls">
+		<section class="controls">
 
 
-            <!-- BUSCADOR -->
+			<!-- BUSCADOR -->
 
-            <input
-                type="search"
-                id="search"
-                placeholder="Buscar espíritu..."
-                autocomplete="off"
-            >
+			<input
+				type="search"
+				id="search"
+				placeholder="Buscar espíritu..."
+				autocomplete="off"
+			>
 
 
 
-            <!-- FILTRO DE COLECCIÓN -->
+			<!-- FILTRO DE COLECCIÓN -->
 
-            <div class="filter-group">
+			<div class="filter-group">
 
 
-                <button
-                    class="filter-button active"
-                    data-collection="all"
-                    type="button"
-                >
-                    Todos
-                </button>
+				<button
+					class="filter-button active"
+					data-collection="all"
+					type="button"
+				>
+					Todos
+				</button>
 
 
-                <button
-                    class="filter-button"
-                    data-collection="owned"
-                    type="button"
-                >
-                    Tengo
-                </button>
+				<button
+					class="filter-button"
+					data-collection="owned"
+					type="button"
+				>
+					Tengo
+				</button>
 
 
-                <button
-                    class="filter-button"
-                    data-collection="missing"
-                    type="button"
-                >
-                    Me faltan
-                </button>
+				<button
+					class="filter-button"
+					data-collection="missing"
+					type="button"
+				>
+					Me faltan
+				</button>
 
 
-            </div>
+			</div>
 
 
-        </section>
+		</section>
 
 
 
-        <!-- ========================================
-             FILTRO DE RAREZA
-        ========================================= -->
+		<!-- ========================================
+			 FILTRO DE RAREZA
+		========================================= -->
 
-        <section class="filter-section">
+		<section class="filter-section">
 
 
-            <h2 id="rarity-title">
-                Rareza
-            </h2>
+			<h2 id="rarity-title">
+				Rareza
+			</h2>
 
 
-            <div class="filter-group">
+			<div class="filter-group">
 
 
-                <button
-                    class="rarity-button active"
-                    data-rarity="all"
-                    type="button"
-                >
-                    Todas
-                </button>
+				<button
+					class="rarity-button active"
+					data-rarity="all"
+					type="button"
+				>
+					Todas
+				</button>
 
 
-                <button
-                    class="rarity-button rare"
-                    data-rarity="rare"
-                    type="button"
-                >
-                    Raro
-                </button>
+				<button
+					class="rarity-button rare"
+					data-rarity="rare"
+					type="button"
+				>
+					Raro
+				</button>
 
 
-                <button
-                    class="rarity-button epic"
-                    data-rarity="epic"
-                    type="button"
-                >
-                    Épico
-                </button>
+				<button
+					class="rarity-button epic"
+					data-rarity="epic"
+					type="button"
+				>
+					Épico
+				</button>
 
 
-                <button
-                    class="rarity-button legendary"
-                    data-rarity="legendary"
-                    type="button"
-                >
-                    Legendario
-                </button>
+				<button
+					class="rarity-button legendary"
+					data-rarity="legendary"
+					type="button"
+				>
+					Legendario
+				</button>
 
 
-                <button
-                    class="rarity-button mythic"
-                    data-rarity="mythic"
-                    type="button"
-                >
-                    Mítico
-                </button>
+				<button
+					class="rarity-button mythic"
+					data-rarity="mythic"
+					type="button"
+				>
+					Mítico
+				</button>
 
 
-            </div>
+			</div>
 
 
-        </section>
+		</section>
 
 
 
-        <!-- ========================================
-             FILTRO DE VARIANTES
-        ========================================= -->
+		<!-- ========================================
+			 FILTRO DE VARIANTES
+		========================================= -->
 
-        <section class="filter-section">
+		<section class="filter-section">
 
 
-            <h2 id="variant-title">
-                Variante
-            </h2>
+			<h2 id="variant-title">
+				Variante
+			</h2>
 
 
-            <div class="filter-group variant-filters">
+			<div class="filter-group variant-filters">
 
 
-                <button
-                    class="variant-button active"
-                    data-variant="all"
-                    type="button"
-                >
-                    Todas
-                </button>
+				<button
+					class="variant-button active"
+					data-variant="all"
+					type="button"
+				>
+					Todas
+				</button>
 
 
-                <button
-                    class="variant-button"
-                    data-variant="base"
-                    type="button"
-                >
-                    Base
-                </button>
+				<button
+					class="variant-button"
+					data-variant="base"
+					type="button"
+				>
+					Base
+				</button>
 
 
-                <button
-                    class="variant-button gold"
-                    data-variant="gold"
-                    type="button"
-                >
-                    Oro
-                </button>
+				<button
+					class="variant-button gold"
+					data-variant="gold"
+					type="button"
+				>
+					Oro
+				</button>
 
 
-                <button
-                    class="variant-button gummy"
-                    data-variant="gummy"
-                    type="button"
-                >
-                    🍉 Gomita
-                </button>
+				<button
+					class="variant-button gummy"
+					data-variant="gummy"
+					type="button"
+				>
+					🍉 Gomita
+				</button>
 
 
-                <button
-                    class="variant-button galaxy"
-                    data-variant="galaxy"
-                    type="button"
-                >
-                    🌌 Galaxia
-                </button>
+				<button
+					class="variant-button galaxy"
+					data-variant="galaxy"
+					type="button"
+				>
+					🌌 Galaxia
+				</button>
 
 
-                <button
-                    class="variant-button holofoil"
-                    data-variant="holofoil"
-                    type="button"
-                >
-                    ✨ Holofoil
-                </button>
+				<button
+					class="variant-button holofoil"
+					data-variant="holofoil"
+					type="button"
+				>
+					✨ Holofoil
+				</button>
 
 
-                <button
-                    class="variant-button gem"
-                    data-variant="gem"
-                    type="button"
-                >
-                    💎 Gema
-                </button>
+				<button
+					class="variant-button gem"
+					data-variant="gem"
+					type="button"
+				>
+					💎 Gema
+				</button>
 
 
-            </div>
+			</div>
 
 
-        </section>
+		</section>
 
 
 
-        <!-- ========================================
-             CUADRÍCULA DE ESPÍRITUS
-        ========================================= -->
+		<!-- ========================================
+			 CUADRÍCULA DE ESPÍRITUS
+		========================================= -->
 
-        <section
-            id="grid"
-            class="spirits-grid"
-        ></section>
+		<section
+			id="grid"
+			class="spirits-grid"
+		></section>
 
 
 
-        <!-- ========================================
-             SIN RESULTADOS
-        ========================================= -->
+		<!-- ========================================
+			 SIN RESULTADOS
+		========================================= -->
 
-        <p
-            id="no-results"
-            class="no-results"
-            hidden
-        >
-            No se encontraron espíritus.
-        </p>
+		<p
+			id="no-results"
+			class="no-results"
+			hidden
+		>
+			No se encontraron espíritus.
+		</p>
 
 
-    </main>
+	</main>
 
 
 
-    <!-- ========================================
-         JAVASCRIPT
-    ========================================= -->
+	<!-- ========================================
+		 JAVASCRIPT
+	========================================= -->
 
-    <script src="assets/js/app.js"></script>
+	<script src="assets/js/app.js"></script>
 
 
 </body>

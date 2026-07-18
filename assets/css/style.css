@@ -18,6 +18,7 @@
     --epic: #a855f7;
     --legendary: #f59e0b;
     --mythic: #ffd700;
+    --special: #ff4fd8;
 
 }
 
@@ -535,6 +536,10 @@ h1 {
 
 .card.mythic {
     border-color: var(--mythic);
+}
+
+.card.special {
+    border-color: var(--special);
 }
 
 

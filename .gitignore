@@ -1,0 +1,12 @@
+node_modules/
+
+data/*.har
+data/fortnitegg-sprites.html
+data/fortnitegg-sprites_files/
+data/fortnitegg-preview.json
+data/spirits-backup.json
+data/spirits-before-sort.json
+data/spirits-comparison.json
+data/spirits-updated-preview.json
+
+*.log

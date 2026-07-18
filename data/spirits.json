@@ -1,20 +1,1396 @@
 [
     {
-        "id": 1,
-        "name": "Spirit 001",
-        "rarity": "Common",
-        "image": "assets/spirits/spirit001.png"
+        "id": "espiritu-de-agua-water-sprite-base",
+        "legacyId": 1,
+        "name": {
+            "es": "Espíritu de Agua (Water Sprite)",
+            "en": "Espíritu de Agua (Water Sprite)"
+        },
+        "rarity": "rare",
+        "variant": "base",
+        "price": 100,
+        "released": true,
+        "image": "assets/spirits/001.webp",
+        "sourceId": 1,
+        "sourceUrl": "https://fortnite.gg/sprites/1-water-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Unvault_Ch7S3_ui_L.webp"
     },
     {
-        "id": 2,
-        "name": "Spirit 002",
-        "rarity": "Rare",
-        "image": "assets/spirits/spirit002.png"
+        "id": "espiritu-de-agua-water-sprite-oro (gold)",
+        "legacyId": 2,
+        "name": {
+            "es": "Espíritu de Agua (Water Sprite)",
+            "en": "Espíritu de Agua (Water Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/002.webp",
+        "sourceId": 4,
+        "sourceUrl": "https://fortnite.gg/sprites/4-gold-water-sprite",
+        "dropChance": 0.75,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Gold_ui_L.webp"
     },
     {
-        "id": 3,
-        "name": "Spirit 003",
-        "rarity": "Epic",
-        "image": "assets/spirits/spirit003.png"
+        "id": "espiritu-de-agua-water-sprite-gomita (gummy)",
+        "legacyId": 3,
+        "name": {
+            "es": "Espíritu de Agua (Water Sprite)",
+            "en": "Espíritu de Agua (Water Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/003.webp",
+        "sourceId": 2,
+        "sourceUrl": "https://fortnite.gg/sprites/2-gummy-water-sprite",
+        "dropChance": 0.62,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-agua-water-sprite-galaxia (galaxy)",
+        "legacyId": 4,
+        "name": {
+            "es": "Espíritu de Agua (Water Sprite)",
+            "en": "Espíritu de Agua (Water Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/004.webp",
+        "sourceId": 3,
+        "sourceUrl": "https://fortnite.gg/sprites/3-galaxy-water-sprite",
+        "dropChance": 0.5,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-agua-water-sprite-holografica (holofoil)",
+        "legacyId": 5,
+        "name": {
+            "es": "Espíritu de Agua (Water Sprite)",
+            "en": "Espíritu de Agua (Water Sprite)"
+        },
+        "rarity": "special",
+        "variant": "holofoil",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/005.webp",
+        "sourceId": 43,
+        "sourceUrl": "https://fortnite.gg/sprites/43-holofoil-water-sprite",
+        "dropChance": 0.25,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Water_Holofoil_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-tierra-earth-sprite-base",
+        "legacyId": 6,
+        "name": {
+            "es": "Espíritu de Tierra (Earth Sprite)",
+            "en": "Espíritu de Tierra (Earth Sprite)"
+        },
+        "rarity": "rare",
+        "variant": "base",
+        "price": 100,
+        "released": true,
+        "image": "assets/spirits/006.webp",
+        "sourceId": 5,
+        "sourceUrl": "https://fortnite.gg/sprites/5-earth-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Ch7S3_UI_L.webp"
+    },
+    {
+        "id": "espiritu-de-tierra-earth-sprite-oro (gold)",
+        "legacyId": 7,
+        "name": {
+            "es": "Espíritu de Tierra (Earth Sprite)",
+            "en": "Espíritu de Tierra (Earth Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/007.webp",
+        "sourceId": 8,
+        "sourceUrl": "https://fortnite.gg/sprites/8-gold-earth-sprite",
+        "dropChance": 0.75,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-tierra-earth-sprite-gomita (gummy)",
+        "legacyId": 8,
+        "name": {
+            "es": "Espíritu de Tierra (Earth Sprite)",
+            "en": "Espíritu de Tierra (Earth Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/008.webp",
+        "sourceId": 6,
+        "sourceUrl": "https://fortnite.gg/sprites/6-gummy-earth-sprite",
+        "dropChance": 0.62,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-tierra-earth-sprite-galaxia (galaxy)",
+        "legacyId": 9,
+        "name": {
+            "es": "Espíritu de Tierra (Earth Sprite)",
+            "en": "Espíritu de Tierra (Earth Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/009.webp",
+        "sourceId": 7,
+        "sourceUrl": "https://fortnite.gg/sprites/7-galaxy-earth-sprite",
+        "dropChance": 0.5,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Earth_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-fuego-fire-sprite-base",
+        "legacyId": 10,
+        "name": {
+            "es": "Espíritu de Fuego (Fire Sprite)",
+            "en": "Espíritu de Fuego (Fire Sprite)"
+        },
+        "rarity": "rare",
+        "variant": "base",
+        "price": 100,
+        "released": true,
+        "image": "assets/spirits/010.webp",
+        "sourceId": 9,
+        "sourceUrl": "https://fortnite.gg/sprites/9-fire-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Unvault_Ch7S3_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-fuego-fire-sprite-oro (gold)",
+        "legacyId": 11,
+        "name": {
+            "es": "Espíritu de Fuego (Fire Sprite)",
+            "en": "Espíritu de Fuego (Fire Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/011.webp",
+        "sourceId": 12,
+        "sourceUrl": "https://fortnite.gg/sprites/12-gold-fire-sprite",
+        "dropChance": 0.75,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-fuego-fire-sprite-gomita (gummy)",
+        "legacyId": 12,
+        "name": {
+            "es": "Espíritu de Fuego (Fire Sprite)",
+            "en": "Espíritu de Fuego (Fire Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/012.webp",
+        "sourceId": 10,
+        "sourceUrl": "https://fortnite.gg/sprites/10-gummy-fire-sprite",
+        "dropChance": 0.62,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-fuego-fire-sprite-galaxia (galaxy)",
+        "legacyId": 13,
+        "name": {
+            "es": "Espíritu de Fuego (Fire Sprite)",
+            "en": "Espíritu de Fuego (Fire Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/013.webp",
+        "sourceId": 11,
+        "sourceUrl": "https://fortnite.gg/sprites/11-galaxy-fire-sprite",
+        "dropChance": 0.5,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-fuego-fire-sprite-holografica (holofoil)",
+        "legacyId": 14,
+        "name": {
+            "es": "Espíritu de Fuego (Fire Sprite)",
+            "en": "Espíritu de Fuego (Fire Sprite)"
+        },
+        "rarity": "special",
+        "variant": "holofoil",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/014.webp",
+        "sourceId": 46,
+        "sourceUrl": "https://fortnite.gg/sprites/46-holofoil-fire-sprite",
+        "dropChance": 0.25,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fire_Holofoil_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-palito-de-pez-fishy-sprite-base",
+        "legacyId": 15,
+        "name": {
+            "es": "Espíritu de Palito de Pez (Fishy Sprite)",
+            "en": "Espíritu de Palito de Pez (Fishy Sprite)"
+        },
+        "rarity": "rare",
+        "variant": "base",
+        "price": 100,
+        "released": true,
+        "image": "assets/spirits/015.webp",
+        "sourceId": 58,
+        "sourceUrl": "https://fortnite.gg/sprites/58-fishy-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-palito-de-pez-fishy-sprite-oro (gold)",
+        "legacyId": 16,
+        "name": {
+            "es": "Espíritu de Palito de Pez (Fishy Sprite)",
+            "en": "Espíritu de Palito de Pez (Fishy Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/016.webp",
+        "sourceId": 61,
+        "sourceUrl": "https://fortnite.gg/sprites/61-gold-fishy-sprite",
+        "dropChance": 0.75,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-palito-de-pez-fishy-sprite-gomita (gummy)",
+        "legacyId": 17,
+        "name": {
+            "es": "Espíritu de Palito de Pez (Fishy Sprite)",
+            "en": "Espíritu de Palito de Pez (Fishy Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/017.webp",
+        "sourceId": 59,
+        "sourceUrl": "https://fortnite.gg/sprites/59-gummy-fishy-sprite",
+        "dropChance": 0.62,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-palito-de-pez-fishy-sprite-galaxia (galaxy)",
+        "legacyId": 18,
+        "name": {
+            "es": "Espíritu de Palito de Pez (Fishy Sprite)",
+            "en": "Espíritu de Palito de Pez (Fishy Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/018.webp",
+        "sourceId": 60,
+        "sourceUrl": "https://fortnite.gg/sprites/60-galaxy-fishy-sprite",
+        "dropChance": 0.5,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Fishy_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "air-base",
+        "legacyId": 72,
+        "name": {
+            "es": "Air",
+            "en": "Air"
+        },
+        "rarity": "rare",
+        "variant": "base",
+        "price": 100,
+        "released": true,
+        "image": "assets/spirits/072.webp",
+        "sourceId": 74,
+        "sourceUrl": "https://fortnite.gg/sprites/74-air-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Default_L.webp"
+    },
+    {
+        "id": "gold-air-gold",
+        "legacyId": 65,
+        "name": {
+            "es": "Gold Air",
+            "en": "Gold Air"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/065.webp",
+        "sourceId": 42,
+        "sourceUrl": "https://fortnite.gg/sprites/42-gold-air-sprite",
+        "dropChance": 0.75,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Gold_L.webp"
+    },
+    {
+        "id": "gummy-air-gummy",
+        "legacyId": 71,
+        "name": {
+            "es": "Gummy Air",
+            "en": "Gummy Air"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/071.webp",
+        "sourceId": 72,
+        "sourceUrl": "https://fortnite.gg/sprites/72-gummy-air-sprite",
+        "dropChance": 0.62,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Candy_L.webp"
+    },
+    {
+        "id": "galaxy-air-galaxy",
+        "legacyId": 73,
+        "name": {
+            "es": "Galaxy Air",
+            "en": "Galaxy Air"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/073.webp",
+        "sourceId": 75,
+        "sourceUrl": "https://fortnite.gg/sprites/75-galaxy-air-sprite",
+        "dropChance": 0.5,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Galaxy_L.webp"
+    },
+    {
+        "id": "holofoil-air-holofoil",
+        "legacyId": 74,
+        "name": {
+            "es": "Holofoil Air",
+            "en": "Holofoil Air"
+        },
+        "rarity": "special",
+        "variant": "holofoil",
+        "price": 4000,
+        "released": true,
+        "image": "assets/spirits/074.webp",
+        "sourceId": 77,
+        "sourceUrl": "https://fortnite.gg/sprites/77-holofoil-air-sprite",
+        "dropChance": 0.25,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Air_Holo_L.webp"
+    },
+    {
+        "id": "espiritu-pato-duck-sprite-base",
+        "legacyId": 19,
+        "name": {
+            "es": "Espíritu Pato (Duck Sprite)",
+            "en": "Espíritu Pato (Duck Sprite)"
+        },
+        "rarity": "epic",
+        "variant": "base",
+        "price": 3000,
+        "released": true,
+        "image": "assets/spirits/019.webp",
+        "sourceId": 13,
+        "sourceUrl": "https://fortnite.gg/sprites/13-duck-sprite",
+        "dropChance": 9,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Default_L.webp"
+    },
+    {
+        "id": "espiritu-pato-duck-sprite-oro (gold)",
+        "legacyId": 20,
+        "name": {
+            "es": "Espíritu Pato (Duck Sprite)",
+            "en": "Espíritu Pato (Duck Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/020.webp",
+        "sourceId": 16,
+        "sourceUrl": "https://fortnite.gg/sprites/16-gold-duck-sprite",
+        "dropChance": 0.4,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Gold_L.webp"
+    },
+    {
+        "id": "espiritu-pato-duck-sprite-gomita (gummy)",
+        "legacyId": 21,
+        "name": {
+            "es": "Espíritu Pato (Duck Sprite)",
+            "en": "Espíritu Pato (Duck Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/021.webp",
+        "sourceId": 14,
+        "sourceUrl": "https://fortnite.gg/sprites/14-gummy-duck-sprite",
+        "dropChance": 0.3,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Candy_L.webp"
+    },
+    {
+        "id": "espiritu-pato-duck-sprite-galaxia (galaxy)",
+        "legacyId": 22,
+        "name": {
+            "es": "Espíritu Pato (Duck Sprite)",
+            "en": "Espíritu Pato (Duck Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/022.webp",
+        "sourceId": 15,
+        "sourceUrl": "https://fortnite.gg/sprites/15-galaxy-duck-sprite",
+        "dropChance": 0.16,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Duck_Galaxy_L.webp"
+    },
+    {
+        "id": "espiritu-fantasma-ghost-sprite-base",
+        "legacyId": 23,
+        "name": {
+            "es": "Espíritu Fantasma (Ghost Sprite)",
+            "en": "Espíritu Fantasma (Ghost Sprite)"
+        },
+        "rarity": "epic",
+        "variant": "base",
+        "price": 3000,
+        "released": true,
+        "image": "assets/spirits/023.webp",
+        "sourceId": 17,
+        "sourceUrl": "https://fortnite.gg/sprites/17-ghost-sprite",
+        "dropChance": 9,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Unvault_L.webp"
+    },
+    {
+        "id": "espiritu-fantasma-ghost-sprite-oro (gold)",
+        "legacyId": 24,
+        "name": {
+            "es": "Espíritu Fantasma (Ghost Sprite)",
+            "en": "Espíritu Fantasma (Ghost Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/024.webp",
+        "sourceId": 20,
+        "sourceUrl": "https://fortnite.gg/sprites/20-gold-ghost-sprite",
+        "dropChance": 0.4,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Gold_L.webp"
+    },
+    {
+        "id": "espiritu-fantasma-ghost-sprite-gomita (gummy)",
+        "legacyId": 25,
+        "name": {
+            "es": "Espíritu Fantasma (Ghost Sprite)",
+            "en": "Espíritu Fantasma (Ghost Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/025.webp",
+        "sourceId": 18,
+        "sourceUrl": "https://fortnite.gg/sprites/18-gummy-ghost-sprite",
+        "dropChance": 0.3,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Candy_L.webp"
+    },
+    {
+        "id": "espiritu-fantasma-ghost-sprite-galaxia (galaxy)",
+        "legacyId": 26,
+        "name": {
+            "es": "Espíritu Fantasma (Ghost Sprite)",
+            "en": "Espíritu Fantasma (Ghost Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/026.webp",
+        "sourceId": 19,
+        "sourceUrl": "https://fortnite.gg/sprites/19-galaxy-ghost-sprite",
+        "dropChance": 0.16,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Galaxy_L.webp"
+    },
+    {
+        "id": "espiritu-fantasma-ghost-sprite-holografica (holofoil)",
+        "legacyId": 27,
+        "name": {
+            "es": "Espíritu Fantasma (Ghost Sprite)",
+            "en": "Espíritu Fantasma (Ghost Sprite)"
+        },
+        "rarity": "special",
+        "variant": "holofoil",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/027.webp",
+        "sourceId": 48,
+        "sourceUrl": "https://fortnite.gg/sprites/48-holofoil-ghost-sprite",
+        "dropChance": 0.06,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Ghost_Holo_L.webp"
+    },
+    {
+        "id": "espiritu-demoniaco-demon-sprite-base",
+        "legacyId": 28,
+        "name": {
+            "es": "Espíritu Demoniaco (Demon Sprite)",
+            "en": "Espíritu Demoniaco (Demon Sprite)"
+        },
+        "rarity": "epic",
+        "variant": "base",
+        "price": 3000,
+        "released": true,
+        "image": "assets/spirits/028.webp",
+        "sourceId": 37,
+        "sourceUrl": "https://fortnite.gg/sprites/37-demon-sprite",
+        "dropChance": 9,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Default_L.webp"
+    },
+    {
+        "id": "espiritu-demoniaco-demon-sprite-oro (gold)",
+        "legacyId": 29,
+        "name": {
+            "es": "Espíritu Demoniaco (Demon Sprite)",
+            "en": "Espíritu Demoniaco (Demon Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/029.webp",
+        "sourceId": 40,
+        "sourceUrl": "https://fortnite.gg/sprites/40-gold-demon-sprite",
+        "dropChance": 0.4,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Gold_L.webp"
+    },
+    {
+        "id": "espiritu-demoniaco-demon-sprite-gomita (gummy)",
+        "legacyId": 30,
+        "name": {
+            "es": "Espíritu Demoniaco (Demon Sprite)",
+            "en": "Espíritu Demoniaco (Demon Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/030.webp",
+        "sourceId": 38,
+        "sourceUrl": "https://fortnite.gg/sprites/38-gummy-demon-sprite",
+        "dropChance": 0.3,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Candy_L.webp"
+    },
+    {
+        "id": "espiritu-demoniaco-demon-sprite-galaxia (galaxy)",
+        "legacyId": 31,
+        "name": {
+            "es": "Espíritu Demoniaco (Demon Sprite)",
+            "en": "Espíritu Demoniaco (Demon Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/031.webp",
+        "sourceId": 39,
+        "sourceUrl": "https://fortnite.gg/sprites/39-galaxy-demon-sprite",
+        "dropChance": 0.16,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_RedDemon_Galaxy_L.webp"
+    },
+    {
+        "id": "espiritu-rey-king-sprite-base",
+        "legacyId": 32,
+        "name": {
+            "es": "Espíritu Rey (King Sprite)",
+            "en": "Espíritu Rey (King Sprite)"
+        },
+        "rarity": "epic",
+        "variant": "base",
+        "price": 3000,
+        "released": true,
+        "image": "assets/spirits/032.webp",
+        "sourceId": 29,
+        "sourceUrl": "https://fortnite.gg/sprites/29-king-sprite",
+        "dropChance": 9,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_ui_L.webp"
+    },
+    {
+        "id": "espiritu-rey-king-sprite-oro (gold)",
+        "legacyId": 33,
+        "name": {
+            "es": "Espíritu Rey (King Sprite)",
+            "en": "Espíritu Rey (King Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/033.webp",
+        "sourceId": 32,
+        "sourceUrl": "https://fortnite.gg/sprites/32-gold-king-sprite",
+        "dropChance": 0.4,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-rey-king-sprite-gomita (gummy)",
+        "legacyId": 34,
+        "name": {
+            "es": "Espíritu Rey (King Sprite)",
+            "en": "Espíritu Rey (King Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/034.webp",
+        "sourceId": 30,
+        "sourceUrl": "https://fortnite.gg/sprites/30-gummy-king-sprite",
+        "dropChance": 0.3,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-rey-king-sprite-galaxia (galaxy)",
+        "legacyId": 35,
+        "name": {
+            "es": "Espíritu Rey (King Sprite)",
+            "en": "Espíritu Rey (King Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/035.webp",
+        "sourceId": 31,
+        "sourceUrl": "https://fortnite.gg/sprites/31-galaxy-king-sprite",
+        "dropChance": 0.16,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-rey-king-sprite-holografica (holofoil)",
+        "legacyId": 36,
+        "name": {
+            "es": "Espíritu Rey (King Sprite)",
+            "en": "Espíritu Rey (King Sprite)"
+        },
+        "rarity": "special",
+        "variant": "holofoil",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/036.webp",
+        "sourceId": 73,
+        "sourceUrl": "https://fortnite.gg/sprites/73-holofoil-king-sprite",
+        "dropChance": 0.06,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_King_Holofoil_ui_L.webp"
+    },
+    {
+        "id": "espiritu-aura-aura-sprite-base",
+        "legacyId": 37,
+        "name": {
+            "es": "Espíritu Aura (Aura Sprite)",
+            "en": "Espíritu Aura (Aura Sprite)"
+        },
+        "rarity": "epic",
+        "variant": "base",
+        "price": 3000,
+        "released": true,
+        "image": "assets/spirits/037.webp",
+        "sourceId": 67,
+        "sourceUrl": "https://fortnite.gg/sprites/67-aura-sprite",
+        "dropChance": 6.98,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_ui_L.webp"
+    },
+    {
+        "id": "espiritu-aura-aura-sprite-oro (gold)",
+        "legacyId": 38,
+        "name": {
+            "es": "Espíritu Aura (Aura Sprite)",
+            "en": "Espíritu Aura (Aura Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/038.webp",
+        "sourceId": 71,
+        "sourceUrl": "https://fortnite.gg/sprites/71-gold-aura-sprite",
+        "dropChance": 0.31,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-aura-aura-sprite-gomita (gummy)",
+        "legacyId": 39,
+        "name": {
+            "es": "Espíritu Aura (Aura Sprite)",
+            "en": "Espíritu Aura (Aura Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/039.webp",
+        "sourceId": 68,
+        "sourceUrl": "https://fortnite.gg/sprites/68-gummy-aura-sprite",
+        "dropChance": 0.23,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-aura-aura-sprite-galaxia (galaxy)",
+        "legacyId": 40,
+        "name": {
+            "es": "Espíritu Aura (Aura Sprite)",
+            "en": "Espíritu Aura (Aura Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/040.webp",
+        "sourceId": 69,
+        "sourceUrl": "https://fortnite.gg/sprites/69-galaxy-aura-sprite",
+        "dropChance": 0.12,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Drifter_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-goleador-striker-sprite-base",
+        "legacyId": 41,
+        "name": {
+            "es": "Espíritu Goleador (Striker Sprite)",
+            "en": "Espíritu Goleador (Striker Sprite)"
+        },
+        "rarity": "epic",
+        "variant": "base",
+        "price": 3000,
+        "released": true,
+        "image": "assets/spirits/041.webp",
+        "sourceId": 62,
+        "sourceUrl": "https://fortnite.gg/sprites/62-striker-sprite",
+        "dropChance": 6.98,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_ui_L.webp"
+    },
+    {
+        "id": "espiritu-goleador-striker-sprite-oro (gold)",
+        "legacyId": 42,
+        "name": {
+            "es": "Espíritu Goleador (Striker Sprite)",
+            "en": "Espíritu Goleador (Striker Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/042.webp",
+        "sourceId": 65,
+        "sourceUrl": "https://fortnite.gg/sprites/65-gold-striker-sprite",
+        "dropChance": 0.31,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_Gold_L.webp"
+    },
+    {
+        "id": "espiritu-goleador-striker-sprite-gomita (gummy)",
+        "legacyId": 43,
+        "name": {
+            "es": "Espíritu Goleador (Striker Sprite)",
+            "en": "Espíritu Goleador (Striker Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/043.webp",
+        "sourceId": 63,
+        "sourceUrl": "https://fortnite.gg/sprites/63-gummy-striker-sprite",
+        "dropChance": 0.23,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_Candy_L.webp"
+    },
+    {
+        "id": "espiritu-goleador-striker-sprite-galaxia (galaxy)",
+        "legacyId": 44,
+        "name": {
+            "es": "Espíritu Goleador (Striker Sprite)",
+            "en": "Espíritu Goleador (Striker Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/044.webp",
+        "sourceId": 64,
+        "sourceUrl": "https://fortnite.gg/sprites/64-galaxy-striker-sprite",
+        "dropChance": 0.12,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_Galaxy_L.webp"
+    },
+    {
+        "id": "espiritu-goleador-striker-sprite-holografica (holofoil)",
+        "legacyId": 45,
+        "name": {
+            "es": "Espíritu Goleador (Striker Sprite)",
+            "en": "Espíritu Goleador (Striker Sprite)"
+        },
+        "rarity": "special",
+        "variant": "holofoil",
+        "price": 6000,
+        "released": true,
+        "image": "assets/spirits/045.webp",
+        "sourceId": 66,
+        "sourceUrl": "https://fortnite.gg/sprites/66-holofoil-striker-sprite",
+        "dropChance": 0.05,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Soccer_Holofoil_L.webp"
+    },
+    {
+        "id": "espiritu-punk-punk-sprite-base",
+        "legacyId": 46,
+        "name": {
+            "es": "Espíritu Punk (Punk Sprite)",
+            "en": "Espíritu Punk (Punk Sprite)"
+        },
+        "rarity": "legendary",
+        "variant": "base",
+        "price": 5000,
+        "released": true,
+        "image": "assets/spirits/046.webp",
+        "sourceId": 25,
+        "sourceUrl": "https://fortnite.gg/sprites/25-punk-sprite",
+        "dropChance": 6.98,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_ui_L.webp"
+    },
+    {
+        "id": "espiritu-punk-punk-sprite-oro (gold)",
+        "legacyId": 47,
+        "name": {
+            "es": "Espíritu Punk (Punk Sprite)",
+            "en": "Espíritu Punk (Punk Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/047.webp",
+        "sourceId": 28,
+        "sourceUrl": "https://fortnite.gg/sprites/28-gold-punk-sprite",
+        "dropChance": 0.31,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-punk-punk-sprite-gomita (gummy)",
+        "legacyId": 48,
+        "name": {
+            "es": "Espíritu Punk (Punk Sprite)",
+            "en": "Espíritu Punk (Punk Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/048.webp",
+        "sourceId": 26,
+        "sourceUrl": "https://fortnite.gg/sprites/26-gummy-punk-sprite",
+        "dropChance": 0.23,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-punk-punk-sprite-galaxia (galaxy)",
+        "legacyId": 49,
+        "name": {
+            "es": "Espíritu Punk (Punk Sprite)",
+            "en": "Espíritu Punk (Punk Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/049.webp",
+        "sourceId": 27,
+        "sourceUrl": "https://fortnite.gg/sprites/27-galaxy-punk-sprite",
+        "dropChance": 0.12,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Punk_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-sonador-dream-sprite-base",
+        "legacyId": 50,
+        "name": {
+            "es": "Espíritu Soñador (Dream Sprite)",
+            "en": "Espíritu Soñador (Dream Sprite)"
+        },
+        "rarity": "legendary",
+        "variant": "base",
+        "price": 5000,
+        "released": true,
+        "image": "assets/spirits/050.webp",
+        "sourceId": 21,
+        "sourceUrl": "https://fortnite.gg/sprites/21-dream-sprite",
+        "dropChance": 6.98,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-sonador-dream-sprite-oro (gold)",
+        "legacyId": 51,
+        "name": {
+            "es": "Espíritu Soñador (Dream Sprite)",
+            "en": "Espíritu Soñador (Dream Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/051.webp",
+        "sourceId": 24,
+        "sourceUrl": "https://fortnite.gg/sprites/24-gold-dream-sprite",
+        "dropChance": 0.31,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-sonador-dream-sprite-gomita (gummy)",
+        "legacyId": 52,
+        "name": {
+            "es": "Espíritu Soñador (Dream Sprite)",
+            "en": "Espíritu Soñador (Dream Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/052.webp",
+        "sourceId": 22,
+        "sourceUrl": "https://fortnite.gg/sprites/22-gummy-dream-sprite",
+        "dropChance": 0.23,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-sonador-dream-sprite-galaxia (galaxy)",
+        "legacyId": 53,
+        "name": {
+            "es": "Espíritu Soñador (Dream Sprite)",
+            "en": "Espíritu Soñador (Dream Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/053.webp",
+        "sourceId": 23,
+        "sourceUrl": "https://fortnite.gg/sprites/23-galaxy-dream-sprite",
+        "dropChance": 0.12,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Sleepy_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-jefe-boss-sprite-base",
+        "legacyId": 54,
+        "name": {
+            "es": "Espíritu de Jefe (Boss Sprite)",
+            "en": "Espíritu de Jefe (Boss Sprite)"
+        },
+        "rarity": "legendary",
+        "variant": "base",
+        "price": 5000,
+        "released": true,
+        "image": "assets/spirits/054.webp",
+        "sourceId": 49,
+        "sourceUrl": "https://fortnite.gg/sprites/49-boss-sprite",
+        "dropChance": 6.98,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-jefe-boss-sprite-oro (gold)",
+        "legacyId": 55,
+        "name": {
+            "es": "Espíritu de Jefe (Boss Sprite)",
+            "en": "Espíritu de Jefe (Boss Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/055.webp",
+        "sourceId": 50,
+        "sourceUrl": "https://fortnite.gg/sprites/50-gold-boss-sprite",
+        "dropChance": 0.31,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-jefe-boss-sprite-gomita (gummy)",
+        "legacyId": 56,
+        "name": {
+            "es": "Espíritu de Jefe (Boss Sprite)",
+            "en": "Espíritu de Jefe (Boss Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/056.webp",
+        "sourceId": 51,
+        "sourceUrl": "https://fortnite.gg/sprites/51-gummy-boss-sprite",
+        "dropChance": 0.23,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_Candy_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-jefe-boss-sprite-galaxia (galaxy)",
+        "legacyId": 57,
+        "name": {
+            "es": "Espíritu de Jefe (Boss Sprite)",
+            "en": "Espíritu de Jefe (Boss Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/057.webp",
+        "sourceId": 52,
+        "sourceUrl": "https://fortnite.gg/sprites/52-galaxy-boss-sprite",
+        "dropChance": 0.12,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Boss_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "seven-base",
+        "legacyId": 66,
+        "name": {
+            "es": "Seven",
+            "en": "Seven"
+        },
+        "rarity": "legendary",
+        "variant": "base",
+        "price": 5000,
+        "released": true,
+        "image": "assets/spirits/066.webp",
+        "sourceId": 53,
+        "sourceUrl": "https://fortnite.gg/sprites/53-seven-sprite",
+        "dropChance": 6.98,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_ui_L.webp"
+    },
+    {
+        "id": "gold-seven-gold",
+        "legacyId": 69,
+        "name": {
+            "es": "Gold Seven",
+            "en": "Gold Seven"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/069.webp",
+        "sourceId": 56,
+        "sourceUrl": "https://fortnite.gg/sprites/56-gold-seven-sprite",
+        "dropChance": 0.31,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_Gold_ui_L.webp"
+    },
+    {
+        "id": "gummy-seven-gummy",
+        "legacyId": 67,
+        "name": {
+            "es": "Gummy Seven",
+            "en": "Gummy Seven"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/067.webp",
+        "sourceId": 54,
+        "sourceUrl": "https://fortnite.gg/sprites/54-gummy-seven-sprite",
+        "dropChance": 0.23,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_Candy_ui_L.webp"
+    },
+    {
+        "id": "galaxy-seven-galaxy",
+        "legacyId": 68,
+        "name": {
+            "es": "Galaxy Seven",
+            "en": "Galaxy Seven"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/068.webp",
+        "sourceId": 55,
+        "sourceUrl": "https://fortnite.gg/sprites/55-galaxy-seven-sprite",
+        "dropChance": 0.12,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "holofoil-seven-holofoil",
+        "legacyId": 70,
+        "name": {
+            "es": "Holofoil Seven",
+            "en": "Holofoil Seven"
+        },
+        "rarity": "special",
+        "variant": "holofoil",
+        "price": 10000,
+        "released": true,
+        "image": "assets/spirits/070.webp",
+        "sourceId": 57,
+        "sourceUrl": "https://fortnite.gg/sprites/57-holofoil-seven-sprite",
+        "dropChance": 0.05,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_Seven_Holofoil_ui_L.webp"
+    },
+    {
+        "id": "espiritu-de-la-parca-grim-sprite-base",
+        "legacyId": 58,
+        "name": {
+            "es": "Espíritu de la Parca (Grim Sprite)",
+            "en": "Espíritu de la Parca (Grim Sprite)"
+        },
+        "rarity": "mythic",
+        "variant": "base",
+        "price": 7500,
+        "released": true,
+        "image": "assets/spirits/058.webp",
+        "sourceId": 78,
+        "sourceUrl": "https://fortnite.gg/sprites/78-grim-sprite",
+        "dropChance": 0.09,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Default_L.webp"
+    },
+    {
+        "id": "espiritu-de-la-parca-grim-sprite-galaxia (galaxy)",
+        "legacyId": 59,
+        "name": {
+            "es": "Espíritu de la Parca (Grim Sprite)",
+            "en": "Espíritu de la Parca (Grim Sprite)"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/059.webp",
+        "sourceId": 80,
+        "sourceUrl": "https://fortnite.gg/sprites/80-galaxy-grim-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Galaxy_L.webp"
+    },
+    {
+        "id": "espiritu-punto-cero-zero-point-sprite-base",
+        "legacyId": 60,
+        "name": {
+            "es": "Espíritu Punto Cero (Zero Point Sprite)",
+            "en": "Espíritu Punto Cero (Zero Point Sprite)"
+        },
+        "rarity": "mythic",
+        "variant": "base",
+        "price": 7500,
+        "released": true,
+        "image": "assets/spirits/060.webp",
+        "sourceId": 33,
+        "sourceUrl": "https://fortnite.gg/sprites/33-zero-point-sprite",
+        "dropChance": 0.00093,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_ui_L.webp"
+    },
+    {
+        "id": "espiritu-punto-cero-zero-point-sprite-oro (gold)",
+        "legacyId": 61,
+        "name": {
+            "es": "Espíritu Punto Cero (Zero Point Sprite)",
+            "en": "Espíritu Punto Cero (Zero Point Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/061.webp",
+        "sourceId": 36,
+        "sourceUrl": "https://fortnite.gg/sprites/36-gold-zero-point-sprite",
+        "dropChance": 0.000041,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Gold_ui_L.webp"
+    },
+    {
+        "id": "espiritu-punto-cero-zero-point-sprite-gomita (gummy)",
+        "legacyId": 62,
+        "name": {
+            "es": "Espíritu Punto Cero (Zero Point Sprite)",
+            "en": "Espíritu Punto Cero (Zero Point Sprite)"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/062.webp",
+        "sourceId": 34,
+        "sourceUrl": "https://fortnite.gg/sprites/34-gummy-zero-point-sprite",
+        "dropChance": 0.000031,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Candy_ui_L.webp"
+    },
+    {
+        "id": "cacahuete-quemado-burnt-peanut-base",
+        "legacyId": 63,
+        "name": {
+            "es": "Cacahuete Quemado (Burnt Peanut)",
+            "en": "Cacahuete Quemado (Burnt Peanut)"
+        },
+        "rarity": "mythic",
+        "variant": "base",
+        "price": 7500,
+        "released": true,
+        "image": "assets/spirits/063.webp",
+        "sourceId": 41,
+        "sourceUrl": "https://fortnite.gg/sprites/41-burnt-peanut",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_BurntPeanut_ui_L.webp"
+    },
+    {
+        "id": "galaxy-zero-point-galaxy",
+        "legacyId": 64,
+        "name": {
+            "es": "Galaxy Zero Point",
+            "en": "Galaxy Zero Point"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/064.webp",
+        "sourceId": 35,
+        "sourceUrl": "https://fortnite.gg/sprites/35-galaxy-zero-point-sprite",
+        "dropChance": 0.000016,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_Creature_Sprite_ZeroPoint_Galaxy_ui_L.webp"
+    },
+    {
+        "id": "gold-grim-gold",
+        "legacyId": 76,
+        "name": {
+            "es": "Gold Grim",
+            "en": "Gold Grim"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/076.webp",
+        "sourceId": 81,
+        "sourceUrl": "https://fortnite.gg/sprites/81-gold-grim-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Gold_L.webp"
+    },
+    {
+        "id": "gummy-grim-gummy",
+        "legacyId": 75,
+        "name": {
+            "es": "Gummy Grim",
+            "en": "Gummy Grim"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/075.webp",
+        "sourceId": 79,
+        "sourceUrl": "https://fortnite.gg/sprites/79-gummy-grim-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_GrimReaper_Candy_L.webp"
+    },
+    {
+        "id": "batman-base",
+        "legacyId": 77,
+        "name": {
+            "es": "Batman",
+            "en": "Batman"
+        },
+        "rarity": "mythic",
+        "variant": "base",
+        "price": 7500,
+        "released": true,
+        "image": "assets/spirits/077.webp",
+        "sourceId": 139,
+        "sourceUrl": "https://fortnite.gg/sprites/139-batman-sprite",
+        "dropChance": 2.23,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Default_L.webp"
+    },
+    {
+        "id": "gold-batman-gold",
+        "legacyId": 78,
+        "name": {
+            "es": "Gold Batman",
+            "en": "Gold Batman"
+        },
+        "rarity": "special",
+        "variant": "gold",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/078.webp",
+        "sourceId": 140,
+        "sourceUrl": "https://fortnite.gg/sprites/140-gold-batman-sprite",
+        "dropChance": 0.1,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Gold_L.webp"
+    },
+    {
+        "id": "gummy-batman-gummy",
+        "legacyId": 79,
+        "name": {
+            "es": "Gummy Batman",
+            "en": "Gummy Batman"
+        },
+        "rarity": "special",
+        "variant": "gummy",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/079.webp",
+        "sourceId": 141,
+        "sourceUrl": "https://fortnite.gg/sprites/141-gummy-batman-sprite",
+        "dropChance": 0.07,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Candy_L.webp"
+    },
+    {
+        "id": "galaxy-batman-galaxy",
+        "legacyId": 80,
+        "name": {
+            "es": "Galaxy Batman",
+            "en": "Galaxy Batman"
+        },
+        "rarity": "special",
+        "variant": "galaxy",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/080.webp",
+        "sourceId": 142,
+        "sourceUrl": "https://fortnite.gg/sprites/142-galaxy-batman-sprite",
+        "dropChance": 0.04,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Galaxy_L.webp"
+    },
+    {
+        "id": "holofoil-batman-holofoil",
+        "legacyId": 81,
+        "name": {
+            "es": "Holofoil Batman",
+            "en": "Holofoil Batman"
+        },
+        "rarity": "special",
+        "variant": "holofoil",
+        "price": 15000,
+        "released": true,
+        "image": "assets/spirits/081.webp",
+        "sourceId": 145,
+        "sourceUrl": "https://fortnite.gg/sprites/145-holofoil-batman-sprite",
+        "dropChance": 0.01,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_FossilMeal_Holofoil_L.webp"
+    },
+    {
+        "id": "vini-jr-base",
+        "legacyId": 82,
+        "name": {
+            "es": "Vini Jr.",
+            "en": "Vini Jr."
+        },
+        "rarity": "mythic",
+        "variant": "base",
+        "price": 7500,
+        "released": true,
+        "image": "assets/spirits/082.webp",
+        "sourceId": 149,
+        "sourceUrl": "https://fortnite.gg/sprites/149-vini-jr-sprite",
+        "dropChance": 0,
+        "remoteImage": "https://fortnite.gg/img/x/sprites/icons/T_Icon_BR_CokeParmesan_Default_L.webp"
     }
 ]
