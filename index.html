@@ -1,603 +1,363 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<meta charset="UTF-8">
+    <meta
+      name="description"
+      content="Track and share your Fortnite Spirits collection."
+    />
 
-	<meta
-		name="viewport"
-		content="width=device-width, initial-scale=1.0"
-	>
+    <title>Spirit Tracker</title>
 
-	<meta
-		name="description"
-		content="Track and share your Fortnite Spirits collection."
-	>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="shortcut icon" href="favicon.ico" />
 
-	<title>Spirit Tracker</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-	<link rel="icon" href="data:,">
-
-	<link
-		rel="stylesheet"
-		href="assets/css/style.css"
-	>
-
-</head>
-
-
-<body>
-
-
-	<!-- ========================================
+  <body>
+    <!-- ========================================
 		ENCABEZADO
 	========================================= -->
 
-	<header class="hero">
+    <header class="hero">
+      <div class="hero-content">
+        <!-- TÍTULO E IDIOMA -->
 
-		<div class="hero-content">
+        <div class="top-bar">
+          <h1>SPIRIT TRACKER</h1>
 
+          <button id="language-button" class="language-button" type="button">
+            ES
+          </button>
+        </div>
 
-			<!-- TÍTULO E IDIOMA -->
+        <p id="subtitle">Sigue tu colección de Espíritus de Fortnite</p>
 
-			<div class="top-bar">
-
-				<h1>
-					SPIRIT TRACKER
-				</h1>
-
-				<button
-					id="language-button"
-					class="language-button"
-					type="button"
-				>
-					ES
-				</button>
-
-			</div>
-
-
-			<p id="subtitle">
-				Sigue tu colección de Espíritus de Fortnite
-			</p>
-
-
-
-			<!-- ========================================
+        <!-- ========================================
 				 ESTADÍSTICAS
 			========================================= -->
 
-			<section class="stats">
+        <section class="stats">
+          <!-- PORCENTAJE -->
 
+          <div class="stat">
+            <span id="percentage" class="stat-number"> 0% </span>
 
-				<!-- PORCENTAJE -->
+            <span id="progress-label" class="stat-label"> Completado </span>
+          </div>
 
-				<div class="stat">
+          <!-- COLECCIÓN -->
 
-					<span
-						id="percentage"
-						class="stat-number"
-					>
-						0%
-					</span>
+          <div class="stat">
+            <span id="counter" class="stat-number"> 0 / 0 </span>
 
-					<span
-						id="progress-label"
-						class="stat-label"
-					>
-						Completado
-					</span>
+            <span id="collection-label" class="stat-label"> Colección </span>
+          </div>
 
-				</div>
+          <!-- POLVO -->
 
+          <div class="stat">
+            <span id="dust-value" class="stat-number"> 0 </span>
 
-				<!-- COLECCIÓN -->
+            <span id="dust-label" class="stat-label"> Polvo invertido </span>
+          </div>
+        </section>
 
-				<div class="stat">
-
-					<span
-						id="counter"
-						class="stat-number"
-					>
-						0 / 0
-					</span>
-
-					<span
-						id="collection-label"
-						class="stat-label"
-					>
-						Colección
-					</span>
-
-				</div>
-
-
-				<!-- POLVO -->
-
-				<div class="stat">
-
-					<span
-						id="dust-value"
-						class="stat-number"
-					>
-						0
-					</span>
-
-					<span
-						id="dust-label"
-						class="stat-label"
-					>
-						Polvo invertido
-					</span>
-
-				</div>
-
-
-			</section>
-
-
-
-			<!-- ========================================
+        <!-- ========================================
 				 BARRA DE PROGRESO
 			========================================= -->
 
-			<div class="progress">
+        <div class="progress">
+          <div id="progress-bar"></div>
+        </div>
 
-				<div id="progress-bar"></div>
-
-			</div>
-
-
-
-			<!-- ========================================
+        <!-- ========================================
 				 COMPARTIR Y GENERAR PNG
 			========================================= -->
 
-			<div class="share-actions">
+        <div class="share-actions">
+          <!-- COMPARTIR ENLACE -->
 
+          <button
+            id="share-button"
+            class="action-button primary-action"
+            type="button"
+          >
+            🔗 Compartir colección
+          </button>
 
-				<!-- COMPARTIR ENLACE -->
+          <!-- NOMBRE DEL COLECCIONISTA -->
 
-				<button
-					id="share-button"
-					class="action-button primary-action"
-					type="button"
-				>
-					🔗 Compartir colección
-				</button>
+          <input
+            id="collector-name"
+            class="collector-name"
+            type="text"
+            maxlength="30"
+            placeholder="Tu nombre"
+            autocomplete="off"
+          />
 
+          <!-- GENERAR PNG -->
 
-				<!-- NOMBRE DEL COLECCIONISTA -->
+          <button
+            id="download-image-button"
+            class="action-button image-action"
+            type="button"
+          >
+            🖼️ Descargar PNG
+          </button>
 
-				<input
-					id="collector-name"
-					class="collector-name"
-					type="text"
-					maxlength="30"
-					placeholder="Tu nombre"
-					autocomplete="off"
-				>
+          <!-- MENSAJE DE COMPARTIR -->
 
+          <span
+            id="share-message"
+            class="share-message"
+            aria-live="polite"
+          ></span>
 
-				<!-- GENERAR PNG -->
+          <!-- MENSAJE DEL GENERADOR -->
 
-				<button
-					id="download-image-button"
-					class="action-button image-action"
-					type="button"
-				>
-					🖼️ Descargar PNG
-				</button>
+          <span
+            id="image-message"
+            class="share-message"
+            aria-live="polite"
+          ></span>
+        </div>
+      </div>
+    </header>
 
-
-				<!-- MENSAJE DE COMPARTIR -->
-
-				<span
-					id="share-message"
-					class="share-message"
-					aria-live="polite"
-				></span>
-
-
-				<!-- MENSAJE DEL GENERADOR -->
-
-				<span
-					id="image-message"
-					class="share-message"
-					aria-live="polite"
-				></span>
-
-
-			</div>
-
-
-		</div>
-
-	</header>
-
-
-
-	<!-- ========================================
+    <!-- ========================================
 		 CONTENIDO PRINCIPAL
 	========================================= -->
 
-	<main class="container">
-
-
-
-		<!-- ========================================
+    <main class="container">
+      <!-- ========================================
 			 COLECCIÓN COMPARTIDA
 		========================================= -->
 
-		<section
-			id="shared-panel"
-			class="shared-panel"
-			hidden
-		>
+      <section id="shared-panel" class="shared-panel" hidden>
+        <!-- INFORMACIÓN -->
 
+        <div>
+          <span class="shared-label"> 🔗 Colección compartida </span>
 
-			<!-- INFORMACIÓN -->
+          <h2 id="shared-title">Estás viendo la colección de otra persona</h2>
 
-			<div>
+          <p id="shared-description">
+            Tu colección personal permanece guardada.
+          </p>
+        </div>
 
-				<span class="shared-label">
-					🔗 Colección compartida
-				</span>
+        <!-- ACCIONES -->
 
-				<h2 id="shared-title">
-					Estás viendo la colección de otra persona
-				</h2>
+        <div class="shared-actions">
+          <button
+            id="compare-button"
+            class="shared-button compare-button"
+            type="button"
+          >
+            Comparar
+          </button>
 
-				<p id="shared-description">
-					Tu colección personal permanece guardada.
-				</p>
+          <button
+            id="import-button"
+            class="shared-button import-button"
+            type="button"
+          >
+            Importar colección
+          </button>
 
-			</div>
+          <button
+            id="my-collection-button"
+            class="shared-button secondary-button"
+            type="button"
+          >
+            Volver a mi colección
+          </button>
+        </div>
 
+        <!-- RESULTADOS DE COMPARACIÓN -->
 
+        <div id="comparison-results" class="comparison-results" hidden>
+          <!-- AMBOS -->
 
-			<!-- ACCIONES -->
+          <article>
+            <strong id="both-count"> 0 </strong>
 
-			<div class="shared-actions">
+            <span id="both-label"> Ambos tienen </span>
+          </article>
 
+          <!-- SOLO YO -->
 
-				<button
-					id="compare-button"
-					class="shared-button compare-button"
-					type="button"
-				>
-					Comparar
-				</button>
+          <article>
+            <strong id="only-mine-count"> 0 </strong>
 
+            <span id="only-mine-label"> Solo tú tienes </span>
+          </article>
 
-				<button
-					id="import-button"
-					class="shared-button import-button"
-					type="button"
-				>
-					Importar colección
-				</button>
+          <!-- SOLO COLECCIÓN COMPARTIDA -->
 
+          <article>
+            <strong id="only-shared-count"> 0 </strong>
 
-				<button
-					id="my-collection-button"
-					class="shared-button secondary-button"
-					type="button"
-				>
-					Volver a mi colección
-				</button>
+            <span id="only-shared-label"> Solo la otra colección tiene </span>
+          </article>
+        </div>
+      </section>
 
-
-			</div>
-
-
-
-			<!-- RESULTADOS DE COMPARACIÓN -->
-
-			<div
-				id="comparison-results"
-				class="comparison-results"
-				hidden
-			>
-
-
-				<!-- AMBOS -->
-
-				<article>
-
-					<strong id="both-count">
-						0
-					</strong>
-
-					<span id="both-label">
-						Ambos tienen
-					</span>
-
-				</article>
-
-
-				<!-- SOLO YO -->
-
-				<article>
-
-					<strong id="only-mine-count">
-						0
-					</strong>
-
-					<span id="only-mine-label">
-						Solo tú tienes
-					</span>
-
-				</article>
-
-
-				<!-- SOLO COLECCIÓN COMPARTIDA -->
-
-				<article>
-
-					<strong id="only-shared-count">
-						0
-					</strong>
-
-					<span id="only-shared-label">
-						Solo la otra colección tiene
-					</span>
-
-				</article>
-
-
-			</div>
-
-
-		</section>
-
-
-
-		<!-- ========================================
+      <!-- ========================================
 			 BUSCADOR Y FILTRO DE COLECCIÓN
 		========================================= -->
 
-		<section class="controls">
+      <section class="controls">
+        <!-- BUSCADOR -->
 
+        <input
+          type="search"
+          id="search"
+          placeholder="Buscar espíritu..."
+          autocomplete="off"
+        />
 
-			<!-- BUSCADOR -->
+        <!-- FILTRO DE COLECCIÓN -->
 
-			<input
-				type="search"
-				id="search"
-				placeholder="Buscar espíritu..."
-				autocomplete="off"
-			>
+        <div class="filter-group">
+          <button
+            class="filter-button active"
+            data-collection="all"
+            type="button"
+          >
+            Todos
+          </button>
 
+          <button class="filter-button" data-collection="owned" type="button">
+            Tengo
+          </button>
 
+          <button class="filter-button" data-collection="missing" type="button">
+            Me faltan
+          </button>
+        </div>
+      </section>
 
-			<!-- FILTRO DE COLECCIÓN -->
-
-			<div class="filter-group">
-
-
-				<button
-					class="filter-button active"
-					data-collection="all"
-					type="button"
-				>
-					Todos
-				</button>
-
-
-				<button
-					class="filter-button"
-					data-collection="owned"
-					type="button"
-				>
-					Tengo
-				</button>
-
-
-				<button
-					class="filter-button"
-					data-collection="missing"
-					type="button"
-				>
-					Me faltan
-				</button>
-
-
-			</div>
-
-
-		</section>
-
-
-
-		<!-- ========================================
+      <!-- ========================================
 			 FILTRO DE RAREZA
 		========================================= -->
 
-		<section class="filter-section">
+      <section class="filter-section">
+        <h2 id="rarity-title">Rareza</h2>
 
+        <div class="filter-group">
+          <button class="rarity-button active" data-rarity="all" type="button">
+            Todas
+          </button>
 
-			<h2 id="rarity-title">
-				Rareza
-			</h2>
+          <button class="rarity-button rare" data-rarity="rare" type="button">
+            Raro
+          </button>
 
+          <button class="rarity-button epic" data-rarity="epic" type="button">
+            Épico
+          </button>
 
-			<div class="filter-group">
+          <button
+            class="rarity-button legendary"
+            data-rarity="legendary"
+            type="button"
+          >
+            Legendario
+          </button>
 
+          <button
+            class="rarity-button mythic"
+            data-rarity="mythic"
+            type="button"
+          >
+            Mítico
+          </button>
+        </div>
+      </section>
 
-				<button
-					class="rarity-button active"
-					data-rarity="all"
-					type="button"
-				>
-					Todas
-				</button>
-
-
-				<button
-					class="rarity-button rare"
-					data-rarity="rare"
-					type="button"
-				>
-					Raro
-				</button>
-
-
-				<button
-					class="rarity-button epic"
-					data-rarity="epic"
-					type="button"
-				>
-					Épico
-				</button>
-
-
-				<button
-					class="rarity-button legendary"
-					data-rarity="legendary"
-					type="button"
-				>
-					Legendario
-				</button>
-
-
-				<button
-					class="rarity-button mythic"
-					data-rarity="mythic"
-					type="button"
-				>
-					Mítico
-				</button>
-
-
-			</div>
-
-
-		</section>
-
-
-
-		<!-- ========================================
+      <!-- ========================================
 			 FILTRO DE VARIANTES
 		========================================= -->
 
-		<section class="filter-section">
+      <section class="filter-section">
+        <h2 id="variant-title">Variante</h2>
 
+        <div class="filter-group variant-filters">
+          <button
+            class="variant-button active"
+            data-variant="all"
+            type="button"
+          >
+            Todas
+          </button>
 
-			<h2 id="variant-title">
-				Variante
-			</h2>
+          <button class="variant-button" data-variant="base" type="button">
+            Base
+          </button>
 
+          <button class="variant-button gold" data-variant="gold" type="button">
+            Oro
+          </button>
 
-			<div class="filter-group variant-filters">
+          <button
+            class="variant-button gummy"
+            data-variant="gummy"
+            type="button"
+          >
+            🍉 Gomita
+          </button>
 
+          <button
+            class="variant-button galaxy"
+            data-variant="galaxy"
+            type="button"
+          >
+            🌌 Galaxia
+          </button>
 
-				<button
-					class="variant-button active"
-					data-variant="all"
-					type="button"
-				>
-					Todas
-				</button>
+          <button
+            class="variant-button holofoil"
+            data-variant="holofoil"
+            type="button"
+          >
+            ✨ Holofoil
+          </button>
 
+          <button class="variant-button gem" data-variant="gem" type="button">
+            💎 Gema
+          </button>
+        </div>
+      </section>
 
-				<button
-					class="variant-button"
-					data-variant="base"
-					type="button"
-				>
-					Base
-				</button>
-
-
-				<button
-					class="variant-button gold"
-					data-variant="gold"
-					type="button"
-				>
-					Oro
-				</button>
-
-
-				<button
-					class="variant-button gummy"
-					data-variant="gummy"
-					type="button"
-				>
-					🍉 Gomita
-				</button>
-
-
-				<button
-					class="variant-button galaxy"
-					data-variant="galaxy"
-					type="button"
-				>
-					🌌 Galaxia
-				</button>
-
-
-				<button
-					class="variant-button holofoil"
-					data-variant="holofoil"
-					type="button"
-				>
-					✨ Holofoil
-				</button>
-
-
-				<button
-					class="variant-button gem"
-					data-variant="gem"
-					type="button"
-				>
-					💎 Gema
-				</button>
-
-
-			</div>
-
-
-		</section>
-
-
-
-		<!-- ========================================
+      <!-- ========================================
 			 CUADRÍCULA DE ESPÍRITUS
 		========================================= -->
 
-		<section
-			id="grid"
-			class="spirits-grid"
-		></section>
+      <section id="grid" class="spirits-grid"></section>
 
-
-
-		<!-- ========================================
+      <!-- ========================================
 			 SIN RESULTADOS
 		========================================= -->
 
-		<p
-			id="no-results"
-			class="no-results"
-			hidden
-		>
-			No se encontraron espíritus.
-		</p>
+      <p id="no-results" class="no-results" hidden>
+        No se encontraron espíritus.
+      </p>
+    </main>
 
-
-	</main>
-
-
-
-	<!-- ========================================
+    <!-- ========================================
 		 JAVASCRIPT
 	========================================= -->
 
-	<script src="assets/js/app.js"></script>
-
-
-</body>
-
+    <script src="assets/js/app.js"></script>
+  </body>
 </html>
